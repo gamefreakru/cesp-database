@@ -8,8 +8,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
-    [DbContext(typeof(CentroespanolContext))]
-    partial class CentroespanolContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CespContext))]
+    partial class CespContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace CESP.Database.Migrations
                 .HasAnnotation("ProductVersion", "2.2.2-servicing-10034")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Activities.Models.ActivityDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Activities.Models.ActivityDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("activities");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.CourseDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.CourseDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,7 +79,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("cources");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.LanguageLevelDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.LanguageLevelDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,7 +104,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("language_levels");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -145,7 +145,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("speaking_club_meetings");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.StudentGroupDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.StudentGroupDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -176,7 +176,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("student_groups");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.StudentGroupPriceDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.StudentGroupPriceDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -196,7 +196,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("student_group_prices");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.TeacherDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.TeacherDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -212,7 +212,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Models.Press.Models.PressDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Models.Press.Models.PressDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -240,7 +240,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("presses");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Payments.Models.CurrencyDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Payments.Models.CurrencyDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -256,7 +256,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("currencies");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Payments.Models.PaymentPeriodDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Payments.Models.PaymentPeriodDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -272,7 +272,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("payment_periods");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Payments.Models.PriceDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Payments.Models.PriceDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,7 +302,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("prices");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Schedules.Models.ScheduleDayDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Schedules.Models.ScheduleDayDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -317,7 +317,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("schedule_days");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Schedules.Models.ScheduleDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Schedules.Models.ScheduleDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -344,7 +344,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("schedules");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Schools.Models.Schools.SchoolDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Schools.Models.Schools.SchoolDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -369,7 +369,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("schools");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Users.Models.FeedbackDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Users.Models.FeedbackDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -391,7 +391,7 @@ namespace CESP.Database.Migrations
                     b.ToTable("feedbacks");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Users.Models.UserDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Users.Models.UserDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -414,80 +414,80 @@ namespace CESP.Database.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.LanguageLevelDto", "MaxLanguageLevel")
+                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MaxLanguageLevel")
                         .WithMany()
                         .HasForeignKey("max_language_meeting_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.LanguageLevelDto", "MinLanguageLevel")
+                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MinLanguageLevel")
                         .WithMany()
                         .HasForeignKey("min_language_meeting_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.TeacherDto", "Teacher")
+                    b.HasOne("CESP.Database.Context.Education.Models.TeacherDto", "Teacher")
                         .WithMany()
                         .HasForeignKey("teacher_meeting_fk")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.StudentGroupDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.StudentGroupDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.CourseDto", "Course")
+                    b.HasOne("CESP.Database.Context.Education.Models.CourseDto", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
                         .HasConstraintName("student_group_course_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Education.Models.StudentGroupPriceDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Education.Models.StudentGroupPriceDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Payments.Models.PriceDto", "Price")
+                    b.HasOne("CESP.Database.Context.Payments.Models.PriceDto", "Price")
                         .WithMany()
                         .HasForeignKey("PriceId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.StudentGroupDto", "StudentGroup")
+                    b.HasOne("CESP.Database.Context.Education.Models.StudentGroupDto", "StudentGroup")
                         .WithMany()
                         .HasForeignKey("StudentGroupId")
                         .HasConstraintName("student_group_price_student_group_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Payments.Models.PriceDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Payments.Models.PriceDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Payments.Models.CurrencyDto", "Currency")
+                    b.HasOne("CESP.Database.Context.Payments.Models.CurrencyDto", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId")
                         .HasConstraintName("price_currency_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Centroespanol.Database.Context.Payments.Models.PaymentPeriodDto", "PaymentPeriod")
+                    b.HasOne("CESP.Database.Context.Payments.Models.PaymentPeriodDto", "PaymentPeriod")
                         .WithMany()
                         .HasForeignKey("PaymentPeriodId")
                         .HasConstraintName("price_payment_period_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Schedules.Models.ScheduleDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Schedules.Models.ScheduleDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Schedules.Models.ScheduleDayDto", "ScheduleDay")
+                    b.HasOne("CESP.Database.Context.Schedules.Models.ScheduleDayDto", "ScheduleDay")
                         .WithMany()
                         .HasForeignKey("ScheduleDayId")
                         .HasConstraintName("schedule_schedule_day_fk")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Centroespanol.Database.Context.Education.Models.StudentGroupDto", "StudentGroupDto")
+                    b.HasOne("CESP.Database.Context.Education.Models.StudentGroupDto", "StudentGroupDto")
                         .WithMany()
                         .HasForeignKey("StudentGroupId")
                         .HasConstraintName("schedule_student_group_fk")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Centroespanol.Database.Context.Users.Models.FeedbackDto", b =>
+            modelBuilder.Entity("CESP.Database.Context.Users.Models.FeedbackDto", b =>
                 {
-                    b.HasOne("Centroespanol.Database.Context.Users.Models.UserDto", "User")
+                    b.HasOne("CESP.Database.Context.Users.Models.UserDto", "User")
                         .WithMany()
                         .HasForeignKey("feedback_user_fk")
                         .OnDelete(DeleteBehavior.Cascade);

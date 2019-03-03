@@ -15,9 +15,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CESP.Database.Context
 {
-    public class CentroespanolContext: DbContext
+    public class CespContext: DbContext
     { 
-        public CentroespanolContext(DbContextOptions<CentroespanolContext> options)
+        public CespContext(DbContextOptions<CespContext> options)
             : base(options)
         {
         }
