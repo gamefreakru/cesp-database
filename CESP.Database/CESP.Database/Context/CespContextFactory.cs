@@ -10,7 +10,7 @@ namespace CESP.Database.Context
     {
         public CespContext CreateDbContext(string[] args)
         {
-            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var envName = "Local"; //Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{envName}.json", true)
