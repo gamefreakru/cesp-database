@@ -7,7 +7,7 @@ namespace CESP.Database.Context.Schedules.Models
     {
         public int Id { get; set; }
         public int StudentGroupId { get; set; }
-        public StudentGroupDto StudentGroupDto { get; set; }
+        public StudentGroupDto StudentGroup { get; set; }
         
         public int ScheduleDayId { get; set; }
         public ScheduleDayDto ScheduleDay { get; set; }

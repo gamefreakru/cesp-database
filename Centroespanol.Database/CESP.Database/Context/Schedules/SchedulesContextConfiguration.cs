@@ -42,7 +42,7 @@ namespace CESP.Database.Context.Schedules
                 entity.Property(e => e.StudentGroupId)
                     .HasColumnName("student_group_id");
 
-                entity.HasOne(e => e.StudentGroupDto)
+                entity.HasOne(e => e.StudentGroup)
                     .WithMany()
                     .HasForeignKey(e => e.StudentGroupId)
                     .HasConstraintName("schedule_student_group_fk")
