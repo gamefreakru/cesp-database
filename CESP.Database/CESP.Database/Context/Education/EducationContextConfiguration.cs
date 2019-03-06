@@ -12,6 +12,7 @@ namespace CESP.Database.Context.Education
             ConfigureCourseTable(modelBuilder);
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
+            ConfigureTeacherTable(modelBuilder);
         }
 
         private static void ConfigureTeacherTable(ModelBuilder modelBuilder)

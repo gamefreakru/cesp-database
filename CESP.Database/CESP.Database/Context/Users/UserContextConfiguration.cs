@@ -8,6 +8,7 @@ namespace CESP.Database.Context.Users
 
         public static void Configure(ModelBuilder modelBuilder)
         {
+            ConfigureFeedbackSourceTable(modelBuilder);
             ConfigureUserTable(modelBuilder);
             ConfigureFeedbackTable(modelBuilder);
         }
@@ -19,7 +20,7 @@ namespace CESP.Database.Context.Users
                 entity.ToTable("users");
 
                 entity.HasKey(e => e.Id);
-                
+
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
 
@@ -44,7 +45,7 @@ namespace CESP.Database.Context.Users
                 entity.ToTable("feedbacks");
 
                 entity.HasKey(e => e.Id);
-                
+
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
 
@@ -52,13 +53,45 @@ namespace CESP.Database.Context.Users
                     .HasColumnName("message")
                     .IsRequired();
 
-                entity.Property(e => e.UserId)
-                    .HasColumnName("user_id");
+                entity.Property(e => e.Signature)
+                    .HasColumnName("signature");
 
+                entity.Property(e => e.Date)
+                    .HasColumnName("date");
+
+                entity.Property(e => e.UserId)
+                    .HasColumnName("user_id")
+                    .IsRequired(false);
                 entity.HasOne(e => e.User)
                     .WithMany()
-                    .HasForeignKey("feedback_user_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .HasForeignKey(e => e.UserId)
+                    .HasConstraintName("feedback_user_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
+
+                entity.Property(e => e.SourceId)
+                    .HasColumnName("feedback_source_id")
+                    .IsRequired(false);
+                entity.HasOne(e => e.Source)
+                    .WithMany()
+                    .HasForeignKey(e => e.SourceId)
+                    .HasConstraintName("feedback_source_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
+            });
+        }
+
+        private static void ConfigureFeedbackSourceTable(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FeedbackSourceDto>(entity =>
+            {
+                entity.ToTable("feedback_sources");
+
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name");
             });
         }
     }

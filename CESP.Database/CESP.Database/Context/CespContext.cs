@@ -28,10 +28,11 @@ namespace CESP.Database.Context
 
         public virtual DbSet<ScheduleDto> Schedules { get; set; }
         public virtual DbSet<ScheduleDayDto> ScheduleDays { get; set; }
-        
-        public virtual DbSet<FeedbackDto> Feedbacks  { get; set; }
-        public virtual DbSet<UserDto> Users  { get; set; }
-        
+
+        public virtual DbSet<FeedbackDto> Feedbacks { get; set; }
+        public virtual DbSet<FeedbackSourceDto> FeedbackSources { get; set; }
+        public virtual DbSet<UserDto> Users { get; set; }
+
         public virtual DbSet<ActivityDto> Activities  { get; set; }
         public virtual DbSet<SpeakingClubMeetingDto> SpeakingClubMeetings  { get; set; }
         
@@ -42,7 +43,8 @@ namespace CESP.Database.Context
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
         public virtual DbSet<PressDto> Presses  { get; set; }
-        
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
