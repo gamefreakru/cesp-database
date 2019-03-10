@@ -4,6 +4,9 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <AssemblyName>CESP.Database</AssemblyName>
         <RootNamespace>CESP.Database</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Inna_Starchenkova</Authors>
+        <PackageVersion>1.0.4</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,6 +23,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="appsettings.Local.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="appsettings.Release.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

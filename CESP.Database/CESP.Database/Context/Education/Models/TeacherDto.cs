@@ -1,3 +1,5 @@
+using CESP.Database.Context.Files.Models;
+
 namespace CESP.Database.Context.Education.Models
 {
     public class TeacherDto
@@ -7,6 +9,9 @@ namespace CESP.Database.Context.Education.Models
         public string Post { get; set; }
 
         public string Info { get; set; }
-        // todo photo
+        
+        public int? PhotoId { get; set; }
+
+        public FileDto Photo { get; set; }
     }
 }

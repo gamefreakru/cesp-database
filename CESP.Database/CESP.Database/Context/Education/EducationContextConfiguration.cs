@@ -40,6 +40,16 @@ namespace CESP.Database.Context.Education
 
                 entity.Property(e => e.Info)
                     .HasColumnName("info");
+                
+                entity.Property(e => e.PhotoId)
+                    .HasColumnName("photo_id")
+                    .IsRequired(false);
+
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("teacher_file_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
             });
         }
         
