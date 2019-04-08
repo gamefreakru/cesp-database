@@ -1,3 +1,4 @@
+using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ namespace CESP.Database.Context.Education
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
             ConfigureTeacherTable(modelBuilder);
+          
+            EducationSeed.Seed(modelBuilder);
         }
 
         private static void ConfigureTeacherTable(ModelBuilder modelBuilder)
@@ -37,6 +40,16 @@ namespace CESP.Database.Context.Education
 
                 entity.Property(e => e.Info)
                     .HasColumnName("info");
+                
+                entity.Property(e => e.PhotoId)
+                    .HasColumnName("photo_id")
+                    .IsRequired(false);
+
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("teacher_file_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
             });
         }
         
