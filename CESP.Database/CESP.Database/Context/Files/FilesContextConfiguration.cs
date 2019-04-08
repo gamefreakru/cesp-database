@@ -1,7 +1,7 @@
 using CESP.Database.Context.Files.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CESP.Database.Context.Common
+namespace CESP.Database.Context.Files
 {
     public static class FilesContextConfiguration
     {

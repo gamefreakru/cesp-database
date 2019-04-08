@@ -1,7 +1,7 @@
 using CESP.Database.Context.Education.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Centroespanol.Database.Context.Education
+namespace CESP.Database.Context.Education
 {
     public static class EducationSeed
     {

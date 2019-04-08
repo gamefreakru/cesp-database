@@ -1,8 +1,7 @@
-using CESP.Database.Context.Education.Models;
 using CESP.Database.Context.Files.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CESP.Database.Context.Common
+namespace CESP.Database.Context.Files
 {
     public static class FilesSeed
     {
@@ -40,14 +39,6 @@ namespace CESP.Database.Context.Common
                     Id = 4,
                     Info = "Альберто",
                     Name = "teachers/alberto.jpg",
-                });
-
-            modelBuilder.Entity<FileDto>()
-                .HasData(new FileDto
-                {
-                    Id = 5,
-                    Info = "Хулио",
-                    Name = "teachers/julio.jpg",
                 });
             modelBuilder.Entity<FileDto>()
                 .HasData(new FileDto
