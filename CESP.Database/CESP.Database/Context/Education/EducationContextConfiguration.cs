@@ -1,4 +1,4 @@
-using Centroespanol.Database.Context.Education;
+using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +14,7 @@ namespace CESP.Database.Context.Education
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
             ConfigureTeacherTable(modelBuilder);
-            
+          
             EducationSeed.Seed(modelBuilder);
         }
 

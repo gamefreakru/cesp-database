@@ -1,6 +1,5 @@
-﻿using CESP.Database.Context.Activities;
+using CESP.Database.Context.Activities;
 using CESP.Database.Context.Activities.Models;
-using CESP.Database.Context.Common;
 using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
 using CESP.Database.Context.Payments;
@@ -58,8 +57,7 @@ namespace CESP.Database.Context
             PressContextConfiguration.Configure(modelBuilder);
             SchedulesContextConfiguration.Configure(modelBuilder);
             SchoolContextConfiguration.Configure(modelBuilder);
-            UserContextConfiguration.Configure(modelBuilder);
-            
+            UserContextConfiguration.Configure(modelBuilder);         
             FilesContextConfiguration.Configure(modelBuilder);
         }
     }
