@@ -1,16 +1,23 @@
+using CESP.Database.Context.Education.Models;
+
 namespace CESP.Database.Context.Payments.Models
 {
     public class PriceDto
     {
         public int Id  { get; set; }
         public decimal Cost { get; set; }
+
+        public string CostInfo { get; set; }
         public int? DiscountPer { get; set; }
-        public decimal? Discount { get; set; }
+        public string DiscountInfo { get; set; }
+
+        public string PaymentPeriod { get; set; }
         
         public int CurrencyId { get; set; }
         public CurrencyDto Currency { get; set; }
         
-        public int PaymentPeriodId { get; set; }
-        public PaymentPeriodDto PaymentPeriod { get; set; }
+        public int StudentGroupId { get; set; }
+        public StudentGroupDto Group { get; set; }
+
     }
 }

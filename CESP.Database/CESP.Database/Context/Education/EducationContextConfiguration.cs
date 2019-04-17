@@ -1,5 +1,5 @@
-using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
+using CESP.Database.Context.Payments.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CESP.Database.Context.Education
@@ -9,13 +9,10 @@ namespace CESP.Database.Context.Education
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureStudentGroupTable(modelBuilder);
-            ConfigureStudentGroupPriceTable(modelBuilder);
             ConfigureCourseTable(modelBuilder);
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
             ConfigureTeacherTable(modelBuilder);
-          
-            EducationSeed.Seed(modelBuilder);
         }
 
         private static void ConfigureTeacherTable(ModelBuilder modelBuilder)
@@ -82,7 +79,7 @@ namespace CESP.Database.Context.Education
         }
         
         private static void ConfigureCourseTable(ModelBuilder modelBuilder)
-        {
+        {       
             modelBuilder.Entity<CourseDto>(entity =>
             {
                 entity.ToTable("cources");
@@ -96,27 +93,28 @@ namespace CESP.Database.Context.Education
                     .HasColumnName("name")
                     .HasMaxLength(256);
 
-                entity.Property(e => e.NativeName)
-                    .HasColumnName("native_name")
-                    .HasMaxLength(256);
-
-                entity.Property(e => e.ShortInfo)
+                entity.Property(e => e.Description)
                     .HasColumnName("short_info");
 
-                entity.Property(e => e.Info)
-                    .HasColumnName("info");
-
-                entity.Property(e => e.NativeInfo)
-                    .HasColumnName("native_info");
 
                 entity.Property(e => e.DurationInfo)
                     .HasColumnName("duration_info");
 
-                entity.Property(e => e.InstructionPdf)
-                    .HasColumnName("instruction_pdf");
+                entity.HasMany<PriceDto>(e => e.Prices);
+                 
+                entity.Property(e => e.PhotoId)
+                    .HasColumnName("photo_id")
+                    .IsRequired(false);
+
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("course_file_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
+                
             });
         }
-        
+
         private static void ConfigureStudentGroupTable(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<StudentGroupDto>(entity =>
@@ -132,7 +130,8 @@ namespace CESP.Database.Context.Education
                     .HasColumnName("description");
 
                 entity.Property(e => e.Start)
-                    .HasColumnName("date_start");
+                    .HasColumnName("date_start")
+                    .IsRequired(false);
 
                 entity.Property(e => e.CountStudentsMin)
                     .HasColumnName("count_students_min")
@@ -146,6 +145,10 @@ namespace CESP.Database.Context.Education
                     .HasColumnName("available")
                     .IsRequired(true);
 
+                entity.Property(e => e.IsWorking)
+                    .HasColumnName("working")
+                    .IsRequired(true);
+
                 entity.Property(e => e.CourseId)
                     .HasColumnName("course_id");
 
@@ -155,28 +158,6 @@ namespace CESP.Database.Context.Education
                     .HasConstraintName("student_group_course_fk")
                     .OnDelete(DeleteBehavior.Cascade);
 
-            });
-        }
-
-        private static void ConfigureStudentGroupPriceTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<StudentGroupPriceDto>(entity =>
-            {
-                entity.ToTable("student_group_prices");
-
-                entity.HasKey(e => e.Id);
-                
-                entity.Property(e => e.Id)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.StudentGroupId)
-                    .HasColumnName("student_group_id");
-
-                entity.HasOne(e => e.StudentGroup)
-                    .WithMany()
-                    .HasForeignKey(e => e.StudentGroupId)
-                    .HasConstraintName("student_group_price_student_group_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
         

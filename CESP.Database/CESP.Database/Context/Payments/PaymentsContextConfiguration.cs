@@ -8,7 +8,6 @@ namespace CESP.Database.Context.Payments
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureCurrencyTable(modelBuilder);
-            ConfigurePaymentPeriodTable(modelBuilder);
             ConfigurePrice(modelBuilder);
         }
         
@@ -30,23 +29,6 @@ namespace CESP.Database.Context.Payments
             });
         }
 
-        private static void ConfigurePaymentPeriodTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<PaymentPeriodDto>(entity =>
-            {
-                entity.ToTable("payment_periods");
-
-                entity.HasKey(e => e.Id);
-                
-                entity.Property(e => e.Id)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Info)
-                    .HasColumnName("info")
-                    .HasMaxLength(256)
-                    .IsRequired();
-            });
-        }
 
         private static void ConfigurePrice(ModelBuilder modelBuilder)
         {
@@ -63,14 +45,31 @@ namespace CESP.Database.Context.Payments
                     .HasColumnName("cost")
                     .IsRequired();
 
-                entity.Property(e => e.Discount)
-                    .HasColumnName("discount")
-                    .IsRequired(false);
+                entity.Property(e => e.CostInfo)
+                    .HasColumnName("cost_info")
+                    .HasMaxLength(256);
+
+                entity.Property(e => e.DiscountInfo)
+                    .HasColumnName("discount_info")
+                    .HasMaxLength(256);
 
                 entity.Property(e => e.DiscountPer)
                     .HasColumnName("discounter")
                     .IsRequired(false);
-                
+
+                entity.Property(e => e.PaymentPeriod)
+                    .HasColumnName("payment_period")
+                    .IsRequired(false)
+                    .HasMaxLength(256);
+
+                entity.Property(e => e.StudentGroupId)
+                    .HasColumnName("group_id");
+                entity.HasOne(e => e.Group)
+                    .WithMany()
+                    .HasForeignKey(e => e.StudentGroupId)
+                    .HasConstraintName("price_student_group_fk")
+                    .OnDelete(DeleteBehavior.Cascade);
+ 
                 entity.Property(e => e.CurrencyId)
                     .HasColumnName("currency_id");
 
@@ -79,16 +78,6 @@ namespace CESP.Database.Context.Payments
                     .HasForeignKey(e => e.CurrencyId)
                     .HasConstraintName("price_currency_fk")
                     .OnDelete(DeleteBehavior.Restrict);
-
-                entity.Property(e => e.PaymentPeriodId)
-                    .HasColumnName("payment_period_id");
-                
-                entity.HasOne(e => e.PaymentPeriod)
-                    .WithMany()
-                    .HasForeignKey(e => e.PaymentPeriodId)
-                    .HasConstraintName("price_payment_period_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
-
             });
         }
     }

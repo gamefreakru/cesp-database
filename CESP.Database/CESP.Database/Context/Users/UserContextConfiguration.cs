@@ -69,12 +69,21 @@ namespace CESP.Database.Context.Users
                     .OnDelete(DeleteBehavior.SetNull);
 
                 entity.Property(e => e.SourceId)
-                    .HasColumnName("feedback_source_id")
+                    .HasColumnName("source_id")
                     .IsRequired(false);
                 entity.HasOne(e => e.Source)
                     .WithMany()
                     .HasForeignKey(e => e.SourceId)
                     .HasConstraintName("feedback_source_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
+                
+                entity.Property(e => e.PhotoId)
+                    .HasColumnName("photo_id")
+                    .IsRequired(false);
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("feedback_photo_fk")
                     .OnDelete(DeleteBehavior.SetNull);
             });
         }

@@ -8,11 +8,8 @@ namespace CESP.Database.Context.Schedules.Models
         public int Id { get; set; }
         public int StudentGroupId { get; set; }
         public StudentGroupDto StudentGroup { get; set; }
-        
-        public int ScheduleDayId { get; set; }
-        public ScheduleDayDto ScheduleDay { get; set; }
-        
-        public DateTime StartLessonTime { get; set; }
-        public DateTime EndLessonTime { get; set; }  
+        public string Day { get; set; }
+        public TimeSpan StartLessonTime { get; set; }
+        public TimeSpan EndLessonTime { get; set; }
     }
 }

@@ -26,25 +26,6 @@ namespace CESP.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "cources",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(maxLength: 256, nullable: true),
-                    native_name = table.Column<string>(maxLength: 256, nullable: true),
-                    short_info = table.Column<string>(nullable: true),
-                    info = table.Column<string>(nullable: true),
-                    native_info = table.Column<string>(nullable: true),
-                    duration_info = table.Column<string>(nullable: true),
-                    instruction_pdf = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_cources", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "currencies",
                 columns: table => new
                 {
@@ -55,6 +36,33 @@ namespace CESP.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_currencies", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "feedback_sources",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_feedback_sources", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "files",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(nullable: true),
+                    info = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_files", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,19 +79,6 @@ namespace CESP.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_language_levels", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "payment_periods",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    info = table.Column<string>(maxLength: 256, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_payment_periods", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,19 +99,6 @@ namespace CESP.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "schedule_days",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(maxLength: 256, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_schedule_days", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "schools",
                 columns: table => new
                 {
@@ -130,21 +112,6 @@ namespace CESP.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_schools", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Teachers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Post = table.Column<string>(nullable: true),
-                    Info = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Teachers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -163,14 +130,95 @@ namespace CESP.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "cources",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(maxLength: 256, nullable: true),
+                    short_info = table.Column<string>(nullable: true),
+                    duration_info = table.Column<string>(nullable: true),
+                    photo_id = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_cources", x => x.id);
+                    table.ForeignKey(
+                        name: "course_file_fk",
+                        column: x => x.photo_id,
+                        principalTable: "files",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "teachers",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(maxLength: 256, nullable: false),
+                    post = table.Column<string>(maxLength: 256, nullable: true),
+                    info = table.Column<string>(nullable: true),
+                    photo_id = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_teachers", x => x.id);
+                    table.ForeignKey(
+                        name: "teacher_file_fk",
+                        column: x => x.photo_id,
+                        principalTable: "files",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "feedbacks",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    message = table.Column<string>(nullable: false),
+                    date = table.Column<DateTime>(nullable: false),
+                    signature = table.Column<string>(nullable: true),
+                    source_id = table.Column<int>(nullable: true),
+                    user_id = table.Column<int>(nullable: true),
+                    photo_id = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_feedbacks", x => x.id);
+                    table.ForeignKey(
+                        name: "feedback_photo_fk",
+                        column: x => x.photo_id,
+                        principalTable: "files",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "feedback_source_fk",
+                        column: x => x.source_id,
+                        principalTable: "feedback_sources",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "feedback_user_fk",
+                        column: x => x.user_id,
+                        principalTable: "users",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "student_groups",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     course_id = table.Column<int>(nullable: false),
-                    date_start = table.Column<DateTime>(nullable: false),
+                    date_start = table.Column<DateTime>(nullable: true),
                     available = table.Column<bool>(nullable: false),
+                    working = table.Column<bool>(nullable: false),
                     description = table.Column<string>(nullable: true),
                     count_students_min = table.Column<int>(nullable: true),
                     count_students_max = table.Column<int>(nullable: true)
@@ -182,35 +230,6 @@ namespace CESP.Database.Migrations
                         name: "student_group_course_fk",
                         column: x => x.course_id,
                         principalTable: "cources",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "prices",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    cost = table.Column<decimal>(nullable: false),
-                    discounter = table.Column<int>(nullable: true),
-                    discount = table.Column<decimal>(nullable: true),
-                    currency_id = table.Column<int>(nullable: false),
-                    payment_period_id = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_prices", x => x.id);
-                    table.ForeignKey(
-                        name: "price_currency_fk",
-                        column: x => x.currency_id,
-                        principalTable: "currencies",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "price_payment_period_fk",
-                        column: x => x.payment_period_id,
-                        principalTable: "payment_periods",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -247,30 +266,47 @@ namespace CESP.Database.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_speaking_club_meetings_Teachers_teacher_meeting_fk",
+                        name: "FK_speaking_club_meetings_teachers_teacher_meeting_fk",
                         column: x => x.teacher_meeting_fk,
-                        principalTable: "Teachers",
-                        principalColumn: "Id",
+                        principalTable: "teachers",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "feedbacks",
+                name: "prices",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    user_id = table.Column<int>(nullable: false),
-                    message = table.Column<string>(nullable: false),
-                    feedback_user_fk = table.Column<int>(nullable: true)
+                    cost = table.Column<decimal>(nullable: false),
+                    cost_info = table.Column<string>(maxLength: 256, nullable: true),
+                    discounter = table.Column<int>(nullable: true),
+                    discount_info = table.Column<string>(maxLength: 256, nullable: true),
+                    payment_period = table.Column<string>(maxLength: 256, nullable: true),
+                    currency_id = table.Column<int>(nullable: false),
+                    group_id = table.Column<int>(nullable: false),
+                    CourseDtoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_feedbacks", x => x.id);
+                    table.PrimaryKey("PK_prices", x => x.id);
                     table.ForeignKey(
-                        name: "FK_feedbacks_users_feedback_user_fk",
-                        column: x => x.feedback_user_fk,
-                        principalTable: "users",
+                        name: "FK_prices_cources_CourseDtoId",
+                        column: x => x.CourseDtoId,
+                        principalTable: "cources",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "price_currency_fk",
+                        column: x => x.currency_id,
+                        principalTable: "currencies",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "price_student_group_fk",
+                        column: x => x.group_id,
+                        principalTable: "student_groups",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -282,19 +318,13 @@ namespace CESP.Database.Migrations
                     id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     student_group_id = table.Column<int>(nullable: false),
-                    schedule_day_id = table.Column<int>(nullable: false),
-                    lesson_start = table.Column<DateTime>(nullable: false),
-                    lesson_end = table.Column<DateTime>(nullable: false)
+                    day = table.Column<string>(maxLength: 256, nullable: false),
+                    lesson_start = table.Column<TimeSpan>(nullable: false),
+                    lesson_end = table.Column<TimeSpan>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_schedules", x => x.id);
-                    table.ForeignKey(
-                        name: "schedule_schedule_day_fk",
-                        column: x => x.schedule_day_id,
-                        principalTable: "schedule_days",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "schedule_student_group_fk",
                         column: x => x.student_group_id,
@@ -303,36 +333,30 @@ namespace CESP.Database.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "student_group_prices",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    student_group_id = table.Column<int>(nullable: false),
-                    PriceId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_student_group_prices", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_student_group_prices_prices_PriceId",
-                        column: x => x.PriceId,
-                        principalTable: "prices",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "student_group_price_student_group_fk",
-                        column: x => x.student_group_id,
-                        principalTable: "student_groups",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_cources_photo_id",
+                table: "cources",
+                column: "photo_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_feedbacks_feedback_user_fk",
+                name: "IX_feedbacks_photo_id",
                 table: "feedbacks",
-                column: "feedback_user_fk");
+                column: "photo_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_feedbacks_source_id",
+                table: "feedbacks",
+                column: "source_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_feedbacks_user_id",
+                table: "feedbacks",
+                column: "user_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_prices_CourseDtoId",
+                table: "prices",
+                column: "CourseDtoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_prices_currency_id",
@@ -340,14 +364,9 @@ namespace CESP.Database.Migrations
                 column: "currency_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_prices_payment_period_id",
+                name: "IX_prices_group_id",
                 table: "prices",
-                column: "payment_period_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_schedules_schedule_day_id",
-                table: "schedules",
-                column: "schedule_day_id");
+                column: "group_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_schedules_student_group_id",
@@ -370,19 +389,14 @@ namespace CESP.Database.Migrations
                 column: "teacher_meeting_fk");
 
             migrationBuilder.CreateIndex(
-                name: "IX_student_group_prices_PriceId",
-                table: "student_group_prices",
-                column: "PriceId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_student_group_prices_student_group_id",
-                table: "student_group_prices",
-                column: "student_group_id");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_student_groups_course_id",
                 table: "student_groups",
                 column: "course_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_teachers_photo_id",
+                table: "teachers",
+                column: "photo_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -397,6 +411,9 @@ namespace CESP.Database.Migrations
                 name: "presses");
 
             migrationBuilder.DropTable(
+                name: "prices");
+
+            migrationBuilder.DropTable(
                 name: "schedules");
 
             migrationBuilder.DropTable(
@@ -406,34 +423,28 @@ namespace CESP.Database.Migrations
                 name: "speaking_club_meetings");
 
             migrationBuilder.DropTable(
-                name: "student_group_prices");
+                name: "feedback_sources");
 
             migrationBuilder.DropTable(
                 name: "users");
 
             migrationBuilder.DropTable(
-                name: "schedule_days");
-
-            migrationBuilder.DropTable(
-                name: "language_levels");
-
-            migrationBuilder.DropTable(
-                name: "Teachers");
-
-            migrationBuilder.DropTable(
-                name: "prices");
+                name: "currencies");
 
             migrationBuilder.DropTable(
                 name: "student_groups");
 
             migrationBuilder.DropTable(
-                name: "currencies");
+                name: "language_levels");
 
             migrationBuilder.DropTable(
-                name: "payment_periods");
+                name: "teachers");
 
             migrationBuilder.DropTable(
                 name: "cources");
+
+            migrationBuilder.DropTable(
+                name: "files");
         }
     }
 }

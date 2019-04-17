@@ -1,4 +1,5 @@
 using System;
+using CESP.Database.Context.Files.Models;
 
 namespace CESP.Database.Context.Users.Models
 {
@@ -16,6 +17,10 @@ namespace CESP.Database.Context.Users.Models
 
         public int? UserId { get; set; }
         public UserDto User { get; set; }
+
+        public int? PhotoId { get; set; }
+        
+        public FileDto Photo { get; set; }
 
     }
 }
