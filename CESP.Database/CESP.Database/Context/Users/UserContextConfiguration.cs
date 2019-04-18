@@ -11,6 +11,8 @@ namespace CESP.Database.Context.Users
             ConfigureFeedbackSourceTable(modelBuilder);
             ConfigureUserTable(modelBuilder);
             ConfigureFeedbackTable(modelBuilder);
+            
+            FeedbackSourseSeed.Seed(modelBuilder);
         }
 
         private static void ConfigureUserTable(ModelBuilder modelBuilder)

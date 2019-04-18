@@ -9,6 +9,8 @@ namespace CESP.Database.Context.Payments
         {
             ConfigureCurrencyTable(modelBuilder);
             ConfigurePrice(modelBuilder);
+            
+            CurrencySeed.Seed(modelBuilder);
         }
         
         private static void ConfigureCurrencyTable(ModelBuilder modelBuilder)
