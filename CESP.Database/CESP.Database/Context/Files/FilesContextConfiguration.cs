@@ -8,8 +8,6 @@ namespace CESP.Database.Context.Files
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureFileTable(modelBuilder);
-            
-            FilesSeed.Seed(modelBuilder);
         }
 
         private static void ConfigureFileTable(ModelBuilder modelBuilder)
