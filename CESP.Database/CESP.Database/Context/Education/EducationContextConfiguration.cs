@@ -102,8 +102,6 @@ namespace CESP.Database.Context.Education
 
                 entity.Property(e => e.DurationInfo)
                     .HasColumnName("duration_info");
-
-                entity.HasMany<PriceDto>(e => e.Prices);
                  
                 entity.Property(e => e.PhotoId)
                     .HasColumnName("photo_id")

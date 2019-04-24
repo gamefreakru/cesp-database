@@ -6,9 +6,8 @@ using CESP.Database.Context.Files.Models;
 using CESP.Database.Context.Payments.Models;
 using CESP.Database.Context.Schedules.Models;
 
-namespace CESP.Resources.Database
+namespace CESP.Database.Filler.Filling
 {
-
     public static class CoursesSeed
     {
         public static void SeedCourses(this CespContext context)
@@ -202,8 +201,8 @@ namespace CESP.Resources.Database
                     }
                 );
                 context.SaveChanges();
-            }           
-            
+            }
+
             if (context.Courses.FirstOrDefault(c => c.Name == @"Индивидуальные занятия с репетитором
             и курсы в мини-группах по испанскому языку
                 у нас в центре или у вас дома") == null)
@@ -229,7 +228,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Испанский для детей") == null)
             {
                 var photo = new FileDto
@@ -242,14 +241,14 @@ namespace CESP.Resources.Database
                 var course = new CourseDto
                 {
                     Name = "Испанский для детей",
-                    Description = 
+                    Description =
                         "Методики преподавания испанского языка для детей отличается от методик для взрослых. Здесь большое внимание уделяется заданиям в игровой форме, используется много визуальных материалов. Мы проводим занятия для детей от 4 до 16 лет.",
                     PhotoId = photo.Id,
                 };
                 context.Courses.Add(course);
-                context.SaveChanges();    
+                context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Каталонский язык") == null)
             {
                 var photo = new FileDto
@@ -269,7 +268,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Португальский язык") == null)
             {
                 var photo = new FileDto
@@ -294,7 +293,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Курс делового испанского и каталонского языков") == null)
             {
                 var photo = new FileDto
@@ -315,7 +314,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Корпоративный курс у вас в офисе") == null)
             {
                 var photo = new FileDto
@@ -336,7 +335,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Занятия по СКАЙП") == null)
             {
                 var photo = new FileDto
@@ -357,7 +356,7 @@ namespace CESP.Resources.Database
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
+
             if (context.Courses.FirstOrDefault(c => c.Name == "Подготовка к ЕГЭ и к DELE") == null)
             {
                 var photo = new FileDto
@@ -381,8 +380,9 @@ DELE – международная система обучения испанс
                 context.Courses.Add(course);
                 context.SaveChanges();
             }
-            
-            if (context.Courses.FirstOrDefault(c => c.Name == "Письменный (в том числе срочный) или устный перевод") == null)
+
+            if (context.Courses.FirstOrDefault(c => c.Name == "Письменный (в том числе срочный) или устный перевод") ==
+                null)
             {
                 var photo = new FileDto
                 {

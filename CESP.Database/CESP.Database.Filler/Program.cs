@@ -2,15 +2,13 @@
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using static CESP.Resources.Database.CoursesSeed;
-
-namespace CESP.Resources
+using static CESP.Database.Filler.Filling.CoursesSeed;
+namespace CESP.Database.Filler
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            
             var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")

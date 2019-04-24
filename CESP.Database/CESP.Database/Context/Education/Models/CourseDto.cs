@@ -15,8 +15,5 @@ namespace CESP.Database.Context.Education.Models
         
         public int? PhotoId { get; set; }
         public FileDto Photo { get; set; }
-        
-        public ICollection<PriceDto> Prices { get; set; }
-        
     }
 }
