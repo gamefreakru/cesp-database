@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20190420090720_Update-Prices")]
+    partial class UpdatePrices
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -338,6 +340,8 @@ namespace CESP.Database.Migrations
                         .HasColumnName("cost_info")
                         .HasMaxLength(256);
 
+                    b.Property<int?>("CourseDtoId");
+
                     b.Property<int?>("CurrencyId")
                         .HasColumnName("currency_id");
 
@@ -356,6 +360,8 @@ namespace CESP.Database.Migrations
                         .HasColumnName("group_id");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseDtoId");
 
                     b.HasIndex("CurrencyId");
 
@@ -586,6 +592,10 @@ namespace CESP.Database.Migrations
 
             modelBuilder.Entity("CESP.Database.Context.Payments.Models.PriceDto", b =>
                 {
+                    b.HasOne("CESP.Database.Context.Education.Models.CourseDto")
+                        .WithMany("Prices")
+                        .HasForeignKey("CourseDtoId");
+
                     b.HasOne("CESP.Database.Context.Payments.Models.CurrencyDto", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyId")

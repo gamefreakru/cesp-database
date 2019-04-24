@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CESP.Database", "CESP.Database\CESP.Database.csproj", "{22641AEE-1F77-4780-8B76-36C0836A98CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CESP.Database.Filler", "CESP.Database.Filler\CESP.Database.Filler.csproj", "{CC19052E-5D0A-4D23-913C-F7584B062CFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{22641AEE-1F77-4780-8B76-36C0836A98CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22641AEE-1F77-4780-8B76-36C0836A98CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22641AEE-1F77-4780-8B76-36C0836A98CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC19052E-5D0A-4D23-913C-F7584B062CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC19052E-5D0A-4D23-913C-F7584B062CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC19052E-5D0A-4D23-913C-F7584B062CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC19052E-5D0A-4D23-913C-F7584B062CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -73,7 +73,8 @@ namespace CESP.Database.Context.Payments
                     .OnDelete(DeleteBehavior.Cascade);
  
                 entity.Property(e => e.CurrencyId)
-                    .HasColumnName("currency_id");
+                    .HasColumnName("currency_id")
+                    .IsRequired(false);
 
                 entity.HasOne(e => e.Currency)
                     .WithMany()

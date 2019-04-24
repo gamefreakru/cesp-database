@@ -13,7 +13,7 @@ namespace CESP.Database.Context.Payments.Models
 
         public string PaymentPeriod { get; set; }
         
-        public int CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
         public CurrencyDto Currency { get; set; }
         
         public int StudentGroupId { get; set; }
