@@ -1,9 +1,8 @@
 ﻿using System;
 using CESP.Database.Context;
+using CESP.Database.Filler.Filling;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using static CESP.Database.Filler.Filling.CoursesSeed;
-using static CESP.Database.Filler.Filling.TeachersSeed;
 
 namespace CESP.Database.Filler
 {
@@ -34,6 +33,7 @@ namespace CESP.Database.Filler
 
             context.SeedCourses();
             context.SeedTeachers();
+            context.SeedFeedback();
         }
     }
 }
