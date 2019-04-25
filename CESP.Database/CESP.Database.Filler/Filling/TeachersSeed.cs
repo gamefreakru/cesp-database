@@ -13,7 +13,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "teachers/josu-foto.jpg",
+                    Name = "teachers/josu.jpg",
                     Info = "Йосу",
                 };
                 context.Files.Add(photo);
@@ -35,7 +35,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "teachers/anhel-photo.jpeg",
+                    Name = "teachers/anhel.jpeg",
                     Info = "Анхель",
                 };
                 context.Files.Add(photo);
@@ -57,7 +57,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "teachers/rafael_200x193.png",
+                    Name = "teachers/rafael.png",
                     Info = "Рафаэль",
                 };
                 context.Files.Add(photo);
