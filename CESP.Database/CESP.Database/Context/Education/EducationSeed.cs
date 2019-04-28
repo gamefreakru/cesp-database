@@ -19,6 +19,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 1,
                     Name = "A1",
                     Rang = 1,
+                    Info = "Начальный уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -26,6 +27,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 2,
                     Name = "A2.1",
                     Rang = 3,
+                    Info = "Базовый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -33,6 +35,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 3,
                     Name = "A2.2",
                     Rang = 4,
+                    Info = "Базовый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -40,6 +43,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 4,
                     Name = "B1.1",
                     Rang = 5,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -47,6 +51,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 5,
                     Name = "B1.2",
                     Rang = 6,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -54,6 +59,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 6,
                     Name = "B2.1",
                     Rang = 7,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -61,6 +67,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 7,
                     Name = "B2.2",
                     Rang = 8,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -68,6 +75,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 8,
                     Name = "B2.3",
                     Rang = 9,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -75,6 +83,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 9,
                     Name = "C1.1",
                     Rang = 10,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto
@@ -82,6 +91,7 @@ namespace Centroespanol.Database.Context.Education
                     Id = 10,
                     Name = "C1.2",
                     Rang = 11,
+                    Info = "Продвинутый уровень",
                 });
             modelBuilder.Entity<LanguageLevelDto>()
                 .HasData(new LanguageLevelDto

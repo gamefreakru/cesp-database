@@ -1,5 +1,5 @@
 using System;
-using CESP.Database.Context.Education.Models;
+using CESP.Database.Context.StudentGroups.Models;
 
 namespace CESP.Database.Context.Schedules.Models
 {

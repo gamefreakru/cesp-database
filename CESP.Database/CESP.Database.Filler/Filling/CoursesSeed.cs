@@ -5,6 +5,7 @@ using CESP.Database.Context.Education.Models;
 using CESP.Database.Context.Files.Models;
 using CESP.Database.Context.Payments.Models;
 using CESP.Database.Context.Schedules.Models;
+using CESP.Database.Context.StudentGroups.Models;
 
 namespace CESP.Database.Filler.Filling
 {

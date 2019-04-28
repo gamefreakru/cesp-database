@@ -1,4 +1,4 @@
-using CESP.Database.Context.Education.Models;
+using CESP.Database.Context.StudentGroups.Models;
 
 namespace CESP.Database.Context.Payments.Models
 {
