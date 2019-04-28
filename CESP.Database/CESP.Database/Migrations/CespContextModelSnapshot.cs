@@ -458,7 +458,7 @@ namespace CESP.Database.Migrations
                         new
                         {
                             Id = 5,
-                            Name = "РАСПИСАНИЕ И ЦЕНЫ"
+                            Name = "Расписание и цены"
                         });
                 });
 

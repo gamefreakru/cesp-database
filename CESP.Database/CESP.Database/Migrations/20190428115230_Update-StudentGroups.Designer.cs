@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    [Migration("20190428092019_Update-StudentGroups")]
+    [Migration("20190428115230_Update-StudentGroups")]
     partial class UpdateStudentGroups
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -460,7 +460,7 @@ namespace CESP.Database.Migrations
                         new
                         {
                             Id = 5,
-                            Name = "РАСПИСАНИЕ И ЦЕНЫ"
+                            Name = "Расписание и цены"
                         });
                 });
 

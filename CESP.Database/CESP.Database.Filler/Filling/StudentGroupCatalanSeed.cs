@@ -48,7 +48,7 @@ namespace CESP.Database.Filler.Filling
                 var schedule = new ScheduleDto
                 {
                     StudentGroupId = group.Id,
-                    Day = "Пятница",
+                    Day = "пятница",
                     StartLessonTime = new TimeSpan(18, 45, 0),
                     EndLessonTime = new TimeSpan(21, 30, 0),
                 };
@@ -84,7 +84,7 @@ namespace CESP.Database.Filler.Filling
                 var schedule = new ScheduleDto
                 {
                     StudentGroupId = group.Id,
-                    Day = "Суббота",
+                    Day = "суббота",
                     StartLessonTime = new TimeSpan(14, 0, 0),
                     EndLessonTime = new TimeSpan(17, 45, 0),
                 };

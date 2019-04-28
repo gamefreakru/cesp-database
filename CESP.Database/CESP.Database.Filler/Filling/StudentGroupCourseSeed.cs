@@ -13,7 +13,7 @@ namespace CESP.Database.Filler.Filling
         {
             var groupScheduleAndPrice = context
                 .GroupBunches
-                .FirstOrDefault(grb => grb.Name == "РАСПИСАНИЕ И ЦЕНЫ");
+                .FirstOrDefault(grb => grb.Name == "Расписание и цены");
 
             if (context.StudentGroups.Any(
                 gr => gr.GroupBunchId == groupScheduleAndPrice.Id))

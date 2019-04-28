@@ -70,7 +70,7 @@ namespace CESP.Database.Context.StudentGroups
                 .HasData(new GroupTimeDto
                 {
                     Id = 5,
-                    Name = "РАСПИСАНИЕ И ЦЕНЫ",
+                    Name = "Расписание и цены",
                 });
         }
 
