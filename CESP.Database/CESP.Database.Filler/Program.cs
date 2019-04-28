@@ -34,6 +34,13 @@ namespace CESP.Database.Filler
             context.SeedCourses();
             context.SeedTeachers();
             context.SeedFeedback();
+
+            context.SeedStudentGroupsAdult();
+            context.SeedStudentGroupsChild();
+            context.SeedStudentGroupsYoung();
+            context.SeedStudentGroupsCatalan();
+
+            context.SeedStudentGroupsStudent();
         }
     }
 }

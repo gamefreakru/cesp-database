@@ -9,7 +9,6 @@ namespace CESP.Database.Context.Education
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
-            ConfigureStudentGroupTable(modelBuilder);
             ConfigureCourseTable(modelBuilder);
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
@@ -113,52 +112,6 @@ namespace CESP.Database.Context.Education
                     .HasConstraintName("course_file_fk")
                     .OnDelete(DeleteBehavior.SetNull);
                 
-            });
-        }
-
-        private static void ConfigureStudentGroupTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<StudentGroupDto>(entity =>
-            {
-                entity.ToTable("student_groups");
-
-                entity.HasKey(e => e.Id);
-                
-                entity.Property(e => e.Id)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Description)
-                    .HasColumnName("description");
-
-                entity.Property(e => e.Start)
-                    .HasColumnName("date_start")
-                    .IsRequired(false);
-
-                entity.Property(e => e.CountStudentsMin)
-                    .HasColumnName("count_students_min")
-                    .IsRequired(false);
-
-                entity.Property(e => e.CountStudentsMax)
-                    .HasColumnName("count_students_max")
-                    .IsRequired(false);
-
-                entity.Property(e => e.IsAvailable)
-                    .HasColumnName("available")
-                    .IsRequired(true);
-
-                entity.Property(e => e.IsWorking)
-                    .HasColumnName("working")
-                    .IsRequired(true);
-
-                entity.Property(e => e.CourseId)
-                    .HasColumnName("course_id");
-
-                entity.HasOne(e => e.Course)
-                    .WithMany()
-                    .HasForeignKey(e => e.CourseId)
-                    .HasConstraintName("student_group_course_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
-
             });
         }
         

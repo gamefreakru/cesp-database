@@ -41,7 +41,7 @@ namespace CESP.Database.Context.Schedules
                     .WithMany()
                     .HasForeignKey(e => e.StudentGroupId)
                     .HasConstraintName("schedule_student_group_fk")
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

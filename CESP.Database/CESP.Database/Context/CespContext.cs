@@ -11,6 +11,8 @@ using CESP.Database.Context.Press.Models;
 using CESP.Database.Context.Schedules;
 using CESP.Database.Context.Schedules.Models;
 using CESP.Database.Context.Schools;
+using CESP.Database.Context.StudentGroups;
+using CESP.Database.Context.StudentGroups.Models;
 using CESP.Database.Context.Users;
 using CESP.Database.Context.Users.Models;
 using Microsoft.EntityFrameworkCore;
@@ -41,10 +43,13 @@ namespace CESP.Database.Context
         
         public virtual DbSet<LanguageLevelDto> LanguageLevels { get; set; }
         public virtual DbSet<StudentGroupDto> StudentGroups  { get; set; }
+        public virtual DbSet<GroupBunchDto> GroupBunches { get; set; }
+        public virtual DbSet<GroupDurationDto> GroupDurations { get; set; }
+        public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
+        public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
         public virtual DbSet<PressDto> Presses  { get; set; }
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -60,6 +65,7 @@ namespace CESP.Database.Context
             SchoolContextConfiguration.Configure(modelBuilder);
             UserContextConfiguration.Configure(modelBuilder);         
             FilesContextConfiguration.Configure(modelBuilder);
+            GroupContextConfiguration.Configure(modelBuilder);
         }
     }
 }
