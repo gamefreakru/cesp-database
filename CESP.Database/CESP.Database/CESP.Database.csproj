@@ -6,7 +6,7 @@
         <RootNamespace>CESP.Database</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Inna_Starchenkova</Authors>
-        <PackageVersion>1.0.6</PackageVersion>
+        <PackageVersion>1.0.7</PackageVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 

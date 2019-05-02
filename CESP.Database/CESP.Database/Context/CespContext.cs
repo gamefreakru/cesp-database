@@ -11,6 +11,7 @@ using CESP.Database.Context.Press.Models;
 using CESP.Database.Context.Schedules;
 using CESP.Database.Context.Schedules.Models;
 using CESP.Database.Context.Schools;
+using CESP.Database.Context.Schools.Models;
 using CESP.Database.Context.StudentGroups;
 using CESP.Database.Context.StudentGroups.Models;
 using CESP.Database.Context.Users;
@@ -37,6 +38,8 @@ namespace CESP.Database.Context
         public virtual DbSet<UserDto> Users { get; set; }
 
         public virtual DbSet<ActivityDto> Activities  { get; set; }
+        public virtual DbSet<ActivityFilesDto> ActivityFiles { get; set; }
+
         public virtual DbSet<SpeakingClubMeetingDto> SpeakingClubMeetings  { get; set; }
         
         public virtual DbSet<CourseDto> Courses { get; set; }
@@ -46,6 +49,8 @@ namespace CESP.Database.Context
         public virtual DbSet<GroupBunchDto> GroupBunches { get; set; }
         public virtual DbSet<GroupDurationDto> GroupDurations { get; set; }
         public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
+
+        public virtual DbSet<SchoolDto> Schools { get; set; }
         public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
