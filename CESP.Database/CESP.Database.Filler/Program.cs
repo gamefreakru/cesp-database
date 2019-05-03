@@ -41,6 +41,8 @@ namespace CESP.Database.Filler
             context.SeedStudentGroupsCatalan();
 
             context.SeedStudentGroupsStudent();
+
+            context.SeedActivities();
         }
     }
 }
