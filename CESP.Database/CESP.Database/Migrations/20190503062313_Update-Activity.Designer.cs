@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    [Migration("20190502205516_Update-Activity")]
+    [Migration("20190503062313_Update-Activity")]
     partial class UpdateActivity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,11 +46,15 @@ namespace CESP.Database.Migrations
                         .HasColumnName("start");
 
                     b.Property<string>("SysName")
+                        .IsRequired()
                         .HasColumnName("sysname");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PhotoId");
+
+                    b.HasIndex("SysName")
+                        .IsUnique();
 
                     b.ToTable("activities");
                 });

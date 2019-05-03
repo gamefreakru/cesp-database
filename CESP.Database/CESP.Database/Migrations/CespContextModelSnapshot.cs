@@ -44,11 +44,15 @@ namespace CESP.Database.Migrations
                         .HasColumnName("start");
 
                     b.Property<string>("SysName")
+                        .IsRequired()
                         .HasColumnName("sysname");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PhotoId");
+
+                    b.HasIndex("SysName")
+                        .IsUnique();
 
                     b.ToTable("activities");
                 });

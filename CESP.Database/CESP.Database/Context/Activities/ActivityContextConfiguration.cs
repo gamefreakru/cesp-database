@@ -23,7 +23,9 @@ namespace CESP.Database.Context.Activities
                     .HasColumnName("id");
 
                 entity.Property(e => e.SysName)
-                    .HasColumnName("sysname");
+                    .HasColumnName("sysname")
+                    .IsRequired()
+                    .IsRequired();
                 
                 entity.Property(e => e.Name)
                     .HasColumnName("name");
@@ -44,6 +46,9 @@ namespace CESP.Database.Context.Activities
                     .HasColumnName("photo_id")
                     .IsRequired(false);
 
+                entity.HasIndex(e => e.SysName)
+                    .IsUnique();
+                
                 entity.HasOne(e => e.Photo)
                     .WithMany()
                     .HasForeignKey(e => e.PhotoId)

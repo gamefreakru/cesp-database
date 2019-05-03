@@ -14,7 +14,8 @@ namespace CESP.Database.Migrations
             migrationBuilder.AddColumn<string>(
                 name: "sysname",
                 table: "activities",
-                nullable: true);
+                nullable: false,
+                defaultValue: "");
 
             migrationBuilder.CreateTable(
                 name: "activity_files",
@@ -46,6 +47,12 @@ namespace CESP.Database.Migrations
                 column: "photo_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_activities_sysname",
+                table: "activities",
+                column: "sysname",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_activity_files_file_id",
                 table: "activity_files",
                 column: "file_id");
@@ -70,6 +77,10 @@ namespace CESP.Database.Migrations
 
             migrationBuilder.DropIndex(
                 name: "IX_activities_photo_id",
+                table: "activities");
+
+            migrationBuilder.DropIndex(
+                name: "IX_activities_sysname",
                 table: "activities");
 
             migrationBuilder.DropColumn(
