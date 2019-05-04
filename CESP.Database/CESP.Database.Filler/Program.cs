@@ -43,6 +43,7 @@ namespace CESP.Database.Filler
             context.SeedStudentGroupsStudent();
 
             context.SeedActivities();
+            context.SeeSpeakingClub();
         }
     }
 }

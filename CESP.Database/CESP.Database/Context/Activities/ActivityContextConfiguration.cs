@@ -24,11 +24,13 @@ namespace CESP.Database.Context.Activities
 
                 entity.Property(e => e.SysName)
                     .HasColumnName("sysname")
-                    .IsRequired()
+                    .HasMaxLength(256)
                     .IsRequired();
                 
                 entity.Property(e => e.Name)
-                    .HasColumnName("name");
+                    .HasColumnName("name")
+                    .HasMaxLength(256)
+                    .IsRequired();
 
                 entity.Property(e => e.ShortInfo)
                     .HasColumnName("short_info");

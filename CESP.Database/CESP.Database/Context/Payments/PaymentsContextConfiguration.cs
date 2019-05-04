@@ -80,7 +80,7 @@ namespace CESP.Database.Context.Payments
                     .WithMany()
                     .HasForeignKey(e => e.CurrencyId)
                     .HasConstraintName("price_currency_fk")
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.SetNull);
             });
         }
     }

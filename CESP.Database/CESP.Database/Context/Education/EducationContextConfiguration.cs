@@ -127,14 +127,27 @@ namespace CESP.Database.Context.Education
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
 
-                entity.Property(e => e.Name)
-                    .HasColumnName("name");
+                entity.Property(e => e.SysName)
+                    .HasColumnName("sysname")
+                    .IsRequired()
+                    .HasMaxLength(256);
+                    
+                entity.HasIndex(e => e.SysName)
+                    .IsUnique();
 
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .HasMaxLength(256);
+
+                entity.Property(e => e.ShortInfo)
+                    .HasColumnName("short_info");
+                
                 entity.Property(e => e.Info)
                     .HasColumnName("info");
 
                 entity.Property(e => e.Date)
-                    .HasColumnName("date");
+                    .HasColumnName("date")
+                    .IsRequired();
 
                 entity.Property(e => e.TeacherId)
                     .HasColumnName("teacher_id");
@@ -142,7 +155,7 @@ namespace CESP.Database.Context.Education
                 entity.HasOne(e => e.Teacher)
                     .WithMany()
                     .HasForeignKey("teacher_meeting_fk")
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.SetNull);
 
                 entity.Property(e => e.MinLanguageLevelId)
                     .HasColumnName("min_language_level_id")
@@ -151,7 +164,7 @@ namespace CESP.Database.Context.Education
                 entity.HasOne(e => e.MinLanguageLevel)
                     .WithMany()
                     .HasForeignKey("min_language_meeting_fk")
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.SetNull);
                 
                 entity.Property(e => e.MaxLanguageLevelId)
                     .HasColumnName("max_language_level_id")
@@ -160,7 +173,17 @@ namespace CESP.Database.Context.Education
                 entity.HasOne(e => e.MaxLanguageLevel)
                     .WithMany()
                     .HasForeignKey("max_language_meeting_fk")
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.SetNull);
+                
+                entity.Property(e => e.PhotoId)
+                    .HasColumnName("photo_id")
+                    .IsRequired(false);
+
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("club_file_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
             });
         }
     }

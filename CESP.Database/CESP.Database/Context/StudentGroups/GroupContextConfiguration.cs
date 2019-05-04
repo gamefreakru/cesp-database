@@ -83,7 +83,16 @@ namespace CESP.Database.Context.StudentGroups
 
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
+                    .HasMaxLength(256)
                     .IsRequired();
+
+                entity.Property(e => e.SysName)
+                    .HasColumnName("sysname")
+                    .HasMaxLength(256)
+                    .IsRequired();
+
+                entity.HasIndex(e => e.SysName)
+                    .IsUnique();
             });
         }
 
@@ -100,6 +109,7 @@ namespace CESP.Database.Context.StudentGroups
 
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
+                    .HasMaxLength(256)
                     .IsRequired();
             });
         }
@@ -132,11 +142,11 @@ namespace CESP.Database.Context.StudentGroups
 
                 entity.Property(e => e.IsAvailable)
                     .HasColumnName("available")
-                    .IsRequired(true);
+                    .IsRequired();
 
                 entity.Property(e => e.IsWorking)
                     .HasColumnName("working")
-                    .IsRequired(true);
+                    .IsRequired();
 
                 entity.Property(e => e.CourseId)
                     .HasColumnName("course_id")

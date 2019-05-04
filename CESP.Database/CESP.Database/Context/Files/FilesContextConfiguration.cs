@@ -22,7 +22,9 @@ namespace CESP.Database.Context.Files
                     .HasColumnName("id");
 
                 entity.Property(e => e.Name)
-                    .HasColumnName("name");
+                    .HasColumnName("name")
+                    .HasMaxLength(256)
+                    .IsRequired();
 
                 entity.Property(e => e.Info)
                     .HasColumnName("info");

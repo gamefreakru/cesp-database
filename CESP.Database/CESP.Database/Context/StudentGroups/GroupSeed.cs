@@ -40,37 +40,42 @@ namespace CESP.Database.Context.StudentGroups
         private static void SeedGroupBunchTable(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GroupBunchDto>()
-                .HasData(new GroupTimeDto
+                .HasData(new GroupBunchDto
                 {
                     Id = 1,
                     Name = "Взрослые группы",
+                    SysName = "adult",
                 });
 
             modelBuilder.Entity<GroupBunchDto>()
-                .HasData(new GroupTimeDto
+                .HasData(new GroupBunchDto
                 {
                     Id = 2,
                     Name = "Детские группы",
+                    SysName = "children",
                 });
 
             modelBuilder.Entity<GroupBunchDto>()
-                .HasData(new GroupTimeDto
+                .HasData(new GroupBunchDto
                 {
                     Id = 3,
                     Name = "Молодежные и подростковые группы",
+                    SysName = "teen",
                 });
 
             modelBuilder.Entity<GroupBunchDto>()
-                .HasData(new GroupTimeDto
+                .HasData(new GroupBunchDto
                 {
                     Id = 4,
                     Name = "Группы каталонского языка",
+                    SysName = "catalan",
                 });
             modelBuilder.Entity<GroupBunchDto>()
-                .HasData(new GroupTimeDto
+                .HasData(new GroupBunchDto
                 {
                     Id = 5,
                     Name = "Расписание и цены",
+                    SysName = "schedules",
                 });
         }
 
