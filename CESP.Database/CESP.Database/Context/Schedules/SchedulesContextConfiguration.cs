@@ -32,7 +32,7 @@ namespace CESP.Database.Context.Schedules
                 entity.Property(e => e.Day)
                     .HasColumnName("day")
                     .HasMaxLength(256)
-                    .IsRequired(true);
+                    .IsRequired();
                 
                 entity.Property(e => e.StudentGroupId)
                     .HasColumnName("student_group_id");
