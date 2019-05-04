@@ -94,7 +94,8 @@ namespace CESP.Database.Filler.Filling
                 {
                     SysName = "20190208",
                     Name = "El terrorismo",
-                    ShortInfo = "Обсудим очень актуальную тему в наше время тему - терроризм. Почему это явление происходит так часто именно сейчас? Можно ли предотвратить террористические атаки? На эти многие другие вопросы мы постараемся найти ответы в эту пятницу.",
+                    ShortInfo =
+                        "Обсудим очень актуальную тему в наше время тему - терроризм. Почему это явление происходит так часто именно сейчас? Можно ли предотвратить террористические атаки? На эти многие другие вопросы мы постараемся найти ответы в эту пятницу.",
                     Info = @"1.	¿Por qué crees la gente utiliza el terrorismo para conseguir lo que quiere? <br>
             2.	¿Qué acciones terroristas recuerdas? <br>
             3.	¿Recuerdas dónde te encontrabas y qué estabas haciendo? <br>
@@ -121,7 +122,7 @@ namespace CESP.Database.Filler.Filling
             24.	¿Qué crees que va a ocurrir en el futuro, desaparecerá el terrorismo o aumentará? <br>
             25.	¿Cómo crees que la gente se convierte en terrorista? <br>
             26.	¿Piensas que cometer abusos a un grupo de gente o a unas comunidades puede derivar en la aparación de terroristas? <br>",
-                    Date = new DateTime(2019,2,8,19,0,0),
+                    Date = new DateTime(2019, 2, 8, 19, 0, 0),
                     TeacherId = teacherId,
                     MinLanguageLevelId = minLevelId,
                     MaxLanguageLevelId = maxLevelId,
@@ -147,9 +148,10 @@ namespace CESP.Database.Filler.Filling
                 var maxLevelId = context.LanguageLevels.FirstOrDefault(l => l.Name == "B2.2").Id;
                 var club = new SpeakingClubMeetingDto
                 {
-                    SysName = "20190125", 
+                    SysName = "20190125",
                     Name = "El matrimonio",
-                    ShortInfo = "Обсудим вопрос брака, женитьбы, супружеста, союза двух любящих людей! В наш век понятие брака видоизменятся и модифицируется с каждым днем, и нам, безусловно, интересно Ваше мнение, дорогие друзья! Во сколько лет нужно выходить замуж (жениться), что вы думаете вообще по поводу брака в целом, что хорошего в браке? И что хорошего в том, чтобы быть одному? Все это обсудим уже в эту пятницу! Приходите, ждем Вас!",
+                    ShortInfo =
+                        "Обсудим вопрос брака, женитьбы, супружеста, союза двух любящих людей! В наш век понятие брака видоизменятся и модифицируется с каждым днем, и нам, безусловно, интересно Ваше мнение, дорогие друзья! Во сколько лет нужно выходить замуж (жениться), что вы думаете вообще по поводу брака в целом, что хорошего в браке? И что хорошего в том, чтобы быть одному? Все это обсудим уже в эту пятницу! Приходите, ждем Вас!",
                     Info = @"1. ¿Cuál crees que es la mejor edad para el matrimonio? <br/>
             2. ¿A qué edad te gustaría casarte? <br/>
             3. ¿Qué opinas de los matrimonios concertados? <br/>
@@ -178,7 +180,7 @@ namespace CESP.Database.Filler.Filling
             26. ¿Y qué opinas de las madres solteras? <br/>
             27. ¿Cómo crees que se debe celebrar un matrimonio o una boda? <br/>
             28. ¿Qué es lo que convierte a una persona en un buen marido o mujer? <br/>",
-                    Date = new DateTime(2019,1,25,19,0,0),
+                    Date = new DateTime(2019, 1, 25, 19, 0, 0),
                     TeacherId = teacherId,
                     MinLanguageLevelId = minLevelId,
                     MaxLanguageLevelId = maxLevelId,
@@ -206,7 +208,8 @@ namespace CESP.Database.Filler.Filling
                 {
                     SysName = "20181114",
                     Name = "La amistad",
-                    ShortInfo = "Говорят, что дружба между мужчиной и женщиной, как жизнь на Марсе — явление предполагаемое, но трудно доказуемое. Существует ли дружба между мужчиной и женщиной? От чего зависит вероятность появления такого явления? А если добавить к этому еще и разницу в возрасте? Об этом и многом другом поговорим в пятницу. Хотели бы выразить свое мнение по этой теме? Может быть Вы сами сталкивались с этим? Ждем вас!",
+                    ShortInfo =
+                        "Говорят, что дружба между мужчиной и женщиной, как жизнь на Марсе — явление предполагаемое, но трудно доказуемое. Существует ли дружба между мужчиной и женщиной? От чего зависит вероятность появления такого явления? А если добавить к этому еще и разницу в возрасте? Об этом и многом другом поговорим в пятницу. Хотели бы выразить свое мнение по этой теме? Может быть Вы сами сталкивались с этим? Ждем вас!",
                     Info = @"1. Qué es la amistad para ti? <br/>
                     2. Es fácil para ti hacer amigos? <br/>
                     3. Q te parece, eres buen/a amigo/a? Por qué? <br/>
@@ -221,7 +224,7 @@ namespace CESP.Database.Filler.Filling
                     12. ¿Tienes muchos amigos del sexo opuesto?<br/>
                     13. ¿Sabes qué dice la ciencia de los amigos del sexo opuesto?<br/>
                     14. ¿Hay algunos beneficios de ser amigos del sexo opuesto?<br/>",
-                    Date = new DateTime(2018,11,14,19,0,0),
+                    Date = new DateTime(2018, 11, 14, 19, 0, 0),
                     TeacherId = teacherId,
                     MinLanguageLevelId = minLevelId,
                     MaxLanguageLevelId = maxLevelId,
@@ -249,8 +252,9 @@ namespace CESP.Database.Filler.Filling
                 {
                     SysName = "20181107",
                     Name = "Vamos de viaje",
-                    ShortInfo = "«Истинное назначение вашего путешествия- это не место на карте, а новый взгляд на мир»- Генри Миллер. Согласны ли Вы с этим утверждением? Что такое «путешествие» для Вас? Об этом поговорим на нашей встрече в пятницу! Приходите и выразите Ваше мнение! Ждем вас!",
-                    Date = new DateTime(2018,11,7,19,0,0),
+                    ShortInfo =
+                        "«Истинное назначение вашего путешествия- это не место на карте, а новый взгляд на мир»- Генри Миллер. Согласны ли Вы с этим утверждением? Что такое «путешествие» для Вас? Об этом поговорим на нашей встрече в пятницу! Приходите и выразите Ваше мнение! Ждем вас!",
+                    Date = new DateTime(2018, 11, 7, 19, 0, 0),
                     TeacherId = teacherId,
                     MinLanguageLevelId = minLevelId,
                     MaxLanguageLevelId = maxLevelId,
@@ -261,57 +265,60 @@ namespace CESP.Database.Filler.Filling
             }
 
             if (context.SpeakingClubMeetings.FirstOrDefault(
-                    s => s.Name == "Cine y vino") == null)
+                    s => s.SysName == "20171215") == null)
             {
+                var photo = new FileDto
                 {
-                    var photo = new FileDto
-                    {
-                        Name = "club/christmas.jpg",
-                        Info = "Cine y vino",
-                    };
-                    context.Files.Add(photo);
-                    context.SaveChanges();
+                    Name = "club/christmas.jpg",
+                    Info = "Cine y vino",
+                };
+                context.Files.Add(photo);
+                context.SaveChanges();
 
-                    var teacherId = context.Teachers.FirstOrDefault(t => t.Name == "Пабло").Id;
-                    var minLevelId = context.LanguageLevels.FirstOrDefault(l => l.Name == "B1.2").Id;
-                    var maxLevelId = context.LanguageLevels.FirstOrDefault(l => l.Name == "B2.2").Id;
-                    var club = new SpeakingClubMeetingDto
-                    {
-                        SysName = "20171215",
-                        Name = "Cine y vino",
-                        ShortInfo = @"Приглашаем окунуться в Рождественскую атмосферу уже в эту пятницу!
+                var teacherId = context.Teachers.FirstOrDefault(t => t.Name == "Пабло").Id;
+                var minLevelId = context.LanguageLevels.FirstOrDefault(l => l.Name == "B1.2").Id;
+                var maxLevelId = context.LanguageLevels.FirstOrDefault(l => l.Name == "B2.2").Id;
+                var club = new SpeakingClubMeetingDto
+                {
+                    SysName = "20171215",
+                    Name = "Cine y vino",
+                    ShortInfo = @"Приглашаем окунуться в Рождественскую атмосферу уже в эту пятницу!
                     Все мы знаем прекрасный фильм  «‎Рождественская История». Приглашаем вас посмотреть испанскую версию этого кино и поговорить о таком чудесном и всеми любимом празднике как Рождество. Ждем вас!",
-                        Date = new DateTime(2017, 12, 15, 19, 0, 0),
-                        TeacherId = teacherId,
-                        MinLanguageLevelId = minLevelId,
-                        MaxLanguageLevelId = maxLevelId,
-                        PhotoId = photo.Id,
-                    };
-                    context.SpeakingClubMeetings.Add(club);
-                    context.SaveChanges();
-                }
+                    Date = new DateTime(2017, 12, 15, 19, 0, 0),
+                    TeacherId = teacherId,
+                    MinLanguageLevelId = minLevelId,
+                    MaxLanguageLevelId = maxLevelId,
+                    PhotoId = photo.Id,
+                };
+                context.SpeakingClubMeetings.Add(club);
+                context.SaveChanges();
+            }
 
+            if (context.SpeakingClubMeetings.FirstOrDefault(
+                    s => s.SysName == "20171201") == null)
+
+            {
+                var photo = new FileDto
                 {
-                    var photo = new FileDto
-                    {
-                        Name = "club/12people.jpg",
-                        Info = "Cine y vino",
-                    };
-                    context.Files.Add(photo);
-                    context.SaveChanges();
+                    Name = "club/12people.jpg",
+                    Info = "Cine y vino",
+                };
+                context.Files.Add(photo);
+                context.SaveChanges();
 
-                    var teacherId = context.Teachers.FirstOrDefault(t => t.Name == "Пабло").Id;
-                    var club = new SpeakingClubMeetingDto
-                    {
-                        Name = "Cine y vino",
-                        ShortInfo = "Друзья, мы решили вернуться к формату КИНО и ВИНО и ждем всех в первый зимний день на наш разговорный клуб! В программе просмотр части фильма «12 hombres sin piedad», его обсуждение...Но не просто разговор, а дебаты! Не будем раскрывать вам все подробности, но будет очень интересно! Ждем вас!",
-                        Date = new DateTime(2017,12,1,19,0,0),
-                        TeacherId = teacherId,
-                        PhotoId = photo.Id,
-                    };
-                    context.SpeakingClubMeetings.Add(club);
-                    context.SaveChanges();
-                }
+                var teacherId = context.Teachers.FirstOrDefault(t => t.Name == "Пабло").Id;
+                var club = new SpeakingClubMeetingDto
+                {
+                    SysName = "20171201",
+                    Name = "Cine y vino",
+                    ShortInfo =
+                        "Друзья, мы решили вернуться к формату КИНО и ВИНО и ждем всех в первый зимний день на наш разговорный клуб! В программе просмотр части фильма «12 hombres sin piedad», его обсуждение...Но не просто разговор, а дебаты! Не будем раскрывать вам все подробности, но будет очень интересно! Ждем вас!",
+                    Date = new DateTime(2017, 12, 1, 19, 0, 0),
+                    TeacherId = teacherId,
+                    PhotoId = photo.Id,
+                };
+                context.SpeakingClubMeetings.Add(club);
+                context.SaveChanges();
             }
 
             if (context.SpeakingClubMeetings.FirstOrDefault(
@@ -330,7 +337,8 @@ namespace CESP.Database.Filler.Filling
                 {
                     SysName = "20171103",
                     Name = "Amor en la red",
-                    ShortInfo = "Очень актуальная тема XXI века, любовь в сети. В век технологий по интернету найти можно все, даже ... любовь! Не верите, приходите к нам на разговорный клуб и поделитесь своим мнением! Мы ждем вас!",
+                    ShortInfo =
+                        "Очень актуальная тема XXI века, любовь в сети. В век технологий по интернету найти можно все, даже ... любовь! Не верите, приходите к нам на разговорный клуб и поделитесь своим мнением! Мы ждем вас!",
                     Info = @"¿Crees que es posible enamorarse de alguien que solo conoces por Internet?<br/>
 
                         ¿Qué estarías dispuesto a hacer por amor?<br/>
@@ -347,7 +355,7 @@ namespace CESP.Database.Filler.Filling
                     ¿Buscamos amor en internet o lo que queremos primero es sexo?<br/>
 
                     ¿Has hecho alguna vez alguna locura por amor? <br/>",
-                    Date = new DateTime(2017,11,3,19,0,0),
+                    Date = new DateTime(2017, 11, 3, 19, 0, 0),
                     TeacherId = teacherId,
                     PhotoId = photo.Id,
                 };
@@ -371,7 +379,8 @@ namespace CESP.Database.Filler.Filling
                 {
                     SysName = "20171027",
                     Name = "Háblame de tu amigo ideal",
-                    ShortInfo = "«Старый друг лучше новых двух», гласит поговорка, а как вы относитесь к теме дружбы? Много ли у вас друзей? Зачем дружба вообще нужна и почему ее стоит беречь. Об этом и многом другом поговорим в пятницу. Мы ждем вас!",
+                    ShortInfo =
+                        "«Старый друг лучше новых двух», гласит поговорка, а как вы относитесь к теме дружбы? Много ли у вас друзей? Зачем дружба вообще нужна и почему ее стоит беречь. Об этом и многом другом поговорим в пятницу. Мы ждем вас!",
                     Info = @"Háblame de tu mejor amigo de la infancia<br/>
 
                         ¿Cuántos amigos crees que se puede tener? <br/>
@@ -394,7 +403,7 @@ namespace CESP.Database.Filler.Filling
                     ¿Por qué motivo dejarías de ser amigo de alguien? <br/>
 
                     ¿ Los hombres buscan amistad con una mujer porque sí o por que su objetivo es otro ?<br/>",
-                    Date = new DateTime(2017,10,27,19,0,0),
+                    Date = new DateTime(2017, 10, 27, 19, 0, 0),
                     TeacherId = teacherId,
                     PhotoId = photo.Id,
                 };

@@ -258,24 +258,18 @@ namespace CESP.Database.Migrations
                     b.Property<int?>("TeacherId")
                         .HasColumnName("teacher_id");
 
-                    b.Property<int?>("max_language_meeting_fk");
-
-                    b.Property<int?>("min_language_meeting_fk");
-
-                    b.Property<int?>("teacher_meeting_fk");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("MaxLanguageLevelId");
+
+                    b.HasIndex("MinLanguageLevelId");
 
                     b.HasIndex("PhotoId");
 
                     b.HasIndex("SysName")
                         .IsUnique();
 
-                    b.HasIndex("max_language_meeting_fk");
-
-                    b.HasIndex("min_language_meeting_fk");
-
-                    b.HasIndex("teacher_meeting_fk");
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("speaking_club_meetings");
                 });
@@ -798,25 +792,28 @@ namespace CESP.Database.Migrations
 
             modelBuilder.Entity("CESP.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>
                 {
+                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MaxLanguageLevel")
+                        .WithMany()
+                        .HasForeignKey("MaxLanguageLevelId")
+                        .HasConstraintName("max_language_meeting_fk")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MinLanguageLevel")
+                        .WithMany()
+                        .HasForeignKey("MinLanguageLevelId")
+                        .HasConstraintName("min_language_meeting_fk")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("CESP.Database.Context.Files.Models.FileDto", "Photo")
                         .WithMany()
                         .HasForeignKey("PhotoId")
                         .HasConstraintName("club_file_fk")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MaxLanguageLevel")
-                        .WithMany()
-                        .HasForeignKey("max_language_meeting_fk")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("CESP.Database.Context.Education.Models.LanguageLevelDto", "MinLanguageLevel")
-                        .WithMany()
-                        .HasForeignKey("min_language_meeting_fk")
-                        .OnDelete(DeleteBehavior.SetNull);
-
                     b.HasOne("CESP.Database.Context.Education.Models.TeacherDto", "Teacher")
                         .WithMany()
-                        .HasForeignKey("teacher_meeting_fk")
+                        .HasForeignKey("TeacherId")
+                        .HasConstraintName("teacher_meeting_fk")
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 

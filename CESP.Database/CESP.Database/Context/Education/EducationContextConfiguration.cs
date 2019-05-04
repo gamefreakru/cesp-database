@@ -154,7 +154,8 @@ namespace CESP.Database.Context.Education
                 
                 entity.HasOne(e => e.Teacher)
                     .WithMany()
-                    .HasForeignKey("teacher_meeting_fk")
+                    .HasForeignKey(e => e.TeacherId)
+                    .HasConstraintName("teacher_meeting_fk")
                     .OnDelete(DeleteBehavior.SetNull);
 
                 entity.Property(e => e.MinLanguageLevelId)
@@ -163,7 +164,8 @@ namespace CESP.Database.Context.Education
                 
                 entity.HasOne(e => e.MinLanguageLevel)
                     .WithMany()
-                    .HasForeignKey("min_language_meeting_fk")
+                    .HasForeignKey(e => e.MinLanguageLevelId)
+                    .HasConstraintName("min_language_meeting_fk")
                     .OnDelete(DeleteBehavior.SetNull);
                 
                 entity.Property(e => e.MaxLanguageLevelId)
@@ -172,7 +174,8 @@ namespace CESP.Database.Context.Education
                     
                 entity.HasOne(e => e.MaxLanguageLevel)
                     .WithMany()
-                    .HasForeignKey("max_language_meeting_fk")
+                    .HasForeignKey(e => e.MaxLanguageLevelId)
+                    .HasConstraintName("max_language_meeting_fk")
                     .OnDelete(DeleteBehavior.SetNull);
                 
                 entity.Property(e => e.PhotoId)

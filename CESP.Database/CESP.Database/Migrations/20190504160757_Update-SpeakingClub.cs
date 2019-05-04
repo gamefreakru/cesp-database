@@ -22,6 +22,32 @@ namespace CESP.Database.Migrations
                 name: "FK_speaking_club_meetings_teachers_teacher_meeting_fk",
                 table: "speaking_club_meetings");
 
+            migrationBuilder.DropIndex(
+                name: "IX_speaking_club_meetings_max_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropIndex(
+                name: "IX_speaking_club_meetings_min_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropColumn(
+                name: "max_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropColumn(
+                name: "min_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.RenameColumn(
+                name: "teacher_meeting_fk",
+                table: "speaking_club_meetings",
+                newName: "photo_id");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_speaking_club_meetings_teacher_meeting_fk",
+                table: "speaking_club_meetings",
+                newName: "IX_speaking_club_meetings_photo_id");
+
             migrationBuilder.AlterColumn<string>(
                 name: "name",
                 table: "speaking_club_meetings",
@@ -29,11 +55,6 @@ namespace CESP.Database.Migrations
                 nullable: true,
                 oldClrType: typeof(string),
                 oldNullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "photo_id",
-                table: "speaking_club_meetings",
-                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "short_info",
@@ -127,15 +148,25 @@ namespace CESP.Database.Migrations
                 value: "schedules");
 
             migrationBuilder.CreateIndex(
-                name: "IX_speaking_club_meetings_photo_id",
+                name: "IX_speaking_club_meetings_max_language_level_id",
                 table: "speaking_club_meetings",
-                column: "photo_id");
+                column: "max_language_level_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_speaking_club_meetings_min_language_level_id",
+                table: "speaking_club_meetings",
+                column: "min_language_level_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_speaking_club_meetings_sysname",
                 table: "speaking_club_meetings",
                 column: "sysname",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_speaking_club_meetings_teacher_id",
+                table: "speaking_club_meetings",
+                column: "teacher_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_group_bunches_sysname",
@@ -152,6 +183,22 @@ namespace CESP.Database.Migrations
                 onDelete: ReferentialAction.SetNull);
 
             migrationBuilder.AddForeignKey(
+                name: "max_language_meeting_fk",
+                table: "speaking_club_meetings",
+                column: "max_language_level_id",
+                principalTable: "language_levels",
+                principalColumn: "id",
+                onDelete: ReferentialAction.SetNull);
+
+            migrationBuilder.AddForeignKey(
+                name: "min_language_meeting_fk",
+                table: "speaking_club_meetings",
+                column: "min_language_level_id",
+                principalTable: "language_levels",
+                principalColumn: "id",
+                onDelete: ReferentialAction.SetNull);
+
+            migrationBuilder.AddForeignKey(
                 name: "club_file_fk",
                 table: "speaking_club_meetings",
                 column: "photo_id",
@@ -160,25 +207,9 @@ namespace CESP.Database.Migrations
                 onDelete: ReferentialAction.SetNull);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_speaking_club_meetings_language_levels_max_language_meeting~",
+                name: "teacher_meeting_fk",
                 table: "speaking_club_meetings",
-                column: "max_language_meeting_fk",
-                principalTable: "language_levels",
-                principalColumn: "id",
-                onDelete: ReferentialAction.SetNull);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_speaking_club_meetings_language_levels_min_language_meeting~",
-                table: "speaking_club_meetings",
-                column: "min_language_meeting_fk",
-                principalTable: "language_levels",
-                principalColumn: "id",
-                onDelete: ReferentialAction.SetNull);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_speaking_club_meetings_teachers_teacher_meeting_fk",
-                table: "speaking_club_meetings",
-                column: "teacher_meeting_fk",
+                column: "teacher_id",
                 principalTable: "teachers",
                 principalColumn: "id",
                 onDelete: ReferentialAction.SetNull);
@@ -191,23 +222,27 @@ namespace CESP.Database.Migrations
                 table: "prices");
 
             migrationBuilder.DropForeignKey(
+                name: "max_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropForeignKey(
+                name: "min_language_meeting_fk",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropForeignKey(
                 name: "club_file_fk",
                 table: "speaking_club_meetings");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_speaking_club_meetings_language_levels_max_language_meeting~",
-                table: "speaking_club_meetings");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_speaking_club_meetings_language_levels_min_language_meeting~",
-                table: "speaking_club_meetings");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_speaking_club_meetings_teachers_teacher_meeting_fk",
+                name: "teacher_meeting_fk",
                 table: "speaking_club_meetings");
 
             migrationBuilder.DropIndex(
-                name: "IX_speaking_club_meetings_photo_id",
+                name: "IX_speaking_club_meetings_max_language_level_id",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropIndex(
+                name: "IX_speaking_club_meetings_min_language_level_id",
                 table: "speaking_club_meetings");
 
             migrationBuilder.DropIndex(
@@ -215,12 +250,12 @@ namespace CESP.Database.Migrations
                 table: "speaking_club_meetings");
 
             migrationBuilder.DropIndex(
+                name: "IX_speaking_club_meetings_teacher_id",
+                table: "speaking_club_meetings");
+
+            migrationBuilder.DropIndex(
                 name: "IX_group_bunches_sysname",
                 table: "group_bunches");
-
-            migrationBuilder.DropColumn(
-                name: "photo_id",
-                table: "speaking_club_meetings");
 
             migrationBuilder.DropColumn(
                 name: "short_info",
@@ -234,6 +269,16 @@ namespace CESP.Database.Migrations
                 name: "sysname",
                 table: "group_bunches");
 
+            migrationBuilder.RenameColumn(
+                name: "photo_id",
+                table: "speaking_club_meetings",
+                newName: "teacher_meeting_fk");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_speaking_club_meetings_photo_id",
+                table: "speaking_club_meetings",
+                newName: "IX_speaking_club_meetings_teacher_meeting_fk");
+
             migrationBuilder.AlterColumn<string>(
                 name: "name",
                 table: "speaking_club_meetings",
@@ -241,6 +286,16 @@ namespace CESP.Database.Migrations
                 oldClrType: typeof(string),
                 oldMaxLength: 256,
                 oldNullable: true);
+
+            migrationBuilder.AddColumn<int>(
+                name: "max_language_meeting_fk",
+                table: "speaking_club_meetings",
+                nullable: true);
+
+            migrationBuilder.AddColumn<int>(
+                name: "min_language_meeting_fk",
+                table: "speaking_club_meetings",
+                nullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "name",
@@ -276,6 +331,16 @@ namespace CESP.Database.Migrations
                 nullable: true,
                 oldClrType: typeof(string),
                 oldMaxLength: 256);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_speaking_club_meetings_max_language_meeting_fk",
+                table: "speaking_club_meetings",
+                column: "max_language_meeting_fk");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_speaking_club_meetings_min_language_meeting_fk",
+                table: "speaking_club_meetings",
+                column: "min_language_meeting_fk");
 
             migrationBuilder.AddForeignKey(
                 name: "price_currency_fk",
