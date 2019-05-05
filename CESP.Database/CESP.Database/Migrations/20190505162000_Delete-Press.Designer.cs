@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20190505162000_Delete-Press")]
+    partial class DeletePress
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -427,39 +429,12 @@ namespace CESP.Database.Migrations
                         .HasColumnName("name")
                         .HasMaxLength(256);
 
-                    b.Property<int>("PhotoId");
-
                     b.Property<string>("ShortInfo")
                         .HasColumnName("short_info");
 
-                    b.Property<string>("SysName")
-                        .IsRequired()
-                        .HasColumnName("sysname")
-                        .HasMaxLength(256);
-
                     b.HasKey("Id");
 
-                    b.HasIndex("PhotoId");
-
-                    b.HasIndex("SysName")
-                        .IsUnique();
-
                     b.ToTable("schools");
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolFileDto", b =>
-                {
-                    b.Property<int>("SchoolId")
-                        .HasColumnName("school_id");
-
-                    b.Property<int>("FileId")
-                        .HasColumnName("file_id");
-
-                    b.HasKey("SchoolId", "FileId");
-
-                    b.HasIndex("FileId");
-
-                    b.ToTable("school_files");
                 });
 
             modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.GroupBunchDto", b =>
@@ -846,30 +821,6 @@ namespace CESP.Database.Migrations
                         .WithMany()
                         .HasForeignKey("StudentGroupId")
                         .HasConstraintName("schedule_student_group_fk")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolDto", b =>
-                {
-                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "Photo")
-                        .WithMany()
-                        .HasForeignKey("PhotoId")
-                        .HasConstraintName("course_file_fk")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolFileDto", b =>
-                {
-                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "File")
-                        .WithMany()
-                        .HasForeignKey("FileId")
-                        .HasConstraintName("school_files_file_fk")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CESP.Database.Context.Schools.Models.SchoolDto", "School")
-                        .WithMany()
-                        .HasForeignKey("SchoolId")
-                        .HasConstraintName("school_files_school_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
