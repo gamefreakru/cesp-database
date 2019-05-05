@@ -6,8 +6,6 @@ using CESP.Database.Context.Files;
 using CESP.Database.Context.Files.Models;
 using CESP.Database.Context.Payments;
 using CESP.Database.Context.Payments.Models;
-using CESP.Database.Context.Press;
-using CESP.Database.Context.Press.Models;
 using CESP.Database.Context.Schedules;
 using CESP.Database.Context.Schedules.Models;
 using CESP.Database.Context.Schools;
@@ -53,9 +51,6 @@ namespace CESP.Database.Context
         public virtual DbSet<SchoolDto> Schools { get; set; }
         public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
-        
-        public virtual DbSet<PressDto> Presses  { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
@@ -65,7 +60,6 @@ namespace CESP.Database.Context
             ActivityContextConfiguration.Configure(modelBuilder);
             EducationContextConfiguration.Configure(modelBuilder);
             PaymentsContextConfiguration.Configure(modelBuilder);
-            PressContextConfiguration.Configure(modelBuilder);
             SchedulesContextConfiguration.Configure(modelBuilder);
             SchoolContextConfiguration.Configure(modelBuilder);
             UserContextConfiguration.Configure(modelBuilder);         
