@@ -10,7 +10,7 @@ namespace CESP.Database.Filler
     {
         static void Main(string[] args)
         {
-            var envName = "Local";//Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{envName}.json", true)
@@ -44,6 +44,7 @@ namespace CESP.Database.Filler
 
             context.SeedActivities();
             context.SeeSpeakingClub();
+            context.SeedPartners();
         }
     }
 }
