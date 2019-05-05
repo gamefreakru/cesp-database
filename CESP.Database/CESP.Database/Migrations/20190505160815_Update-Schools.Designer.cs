@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20190505160815_Update-Schools")]
+    partial class UpdateSchools
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -381,6 +383,34 @@ namespace CESP.Database.Migrations
                     b.HasIndex("StudentGroupId");
 
                     b.ToTable("prices");
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.Press.Models.PressDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
+
+                    b.Property<string>("BlogUrl")
+                        .HasColumnName("blog_url");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnName("date");
+
+                    b.Property<string>("Info")
+                        .HasColumnName("info");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Source")
+                        .HasColumnName("source")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("presses");
                 });
 
             modelBuilder.Entity("CESP.Database.Context.Schedules.Models.ScheduleDto", b =>

@@ -8,6 +8,7 @@ namespace CESP.Database.Context.Schools
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureSchoolTable(modelBuilder);
+            ConfigureSchoolFileTable(modelBuilder);
         }
 
 
@@ -22,6 +23,11 @@ namespace CESP.Database.Context.Schools
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
 
+                entity.Property(e => e.SysName)
+                    .HasColumnName("sysname")
+                    .HasMaxLength(256)
+                    .IsRequired();
+                
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasMaxLength(256)
@@ -35,6 +41,43 @@ namespace CESP.Database.Context.Schools
                 
                 entity.Property(e => e.ShortInfo)
                     .HasColumnName("short_info");
+                
+                entity.HasIndex(e => e.SysName)
+                    .IsUnique();
+                
+                entity.HasOne(e => e.Photo)
+                    .WithMany()
+                    .HasForeignKey(e => e.PhotoId)
+                    .HasConstraintName("course_file_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
+            });
+        }
+
+        private static void ConfigureSchoolFileTable(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SchoolFileDto>(entity =>
+            {
+                entity.ToTable("school_files");
+
+                entity.HasKey(e => new {e.SchoolId, e.FileId});
+
+                entity.Property(e => e.FileId)
+                    .HasColumnName("file_id");
+
+                entity.Property(e => e.SchoolId)
+                    .HasColumnName("school_id");
+
+                entity.HasOne(e => e.File)
+                    .WithMany()
+                    .HasForeignKey(e => e.FileId)
+                    .HasConstraintName("school_files_file_fk")
+                    .OnDelete(DeleteBehavior.Cascade);
+                
+                entity.HasOne(e => e.School)
+                    .WithMany()
+                    .HasForeignKey(e => e.SchoolId)
+                    .HasConstraintName("school_files_school_fk")
+                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

@@ -4,6 +4,8 @@ using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
 using CESP.Database.Context.Files;
 using CESP.Database.Context.Files.Models;
+using CESP.Database.Context.Partners;
+using CESP.Database.Context.Partners.Models;
 using CESP.Database.Context.Payments;
 using CESP.Database.Context.Payments.Models;
 using CESP.Database.Context.Schedules;
@@ -49,8 +51,13 @@ namespace CESP.Database.Context
         public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
 
         public virtual DbSet<SchoolDto> Schools { get; set; }
+        public virtual DbSet<SchoolFileDto> SchoolFiles { get; set; }
         public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
+        
+        public virtual DbSet<PartnerDto> Partners { get; set; }
+        public virtual DbSet<PartnerFileDto> PartnerFiles { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
@@ -65,6 +72,7 @@ namespace CESP.Database.Context
             UserContextConfiguration.Configure(modelBuilder);         
             FilesContextConfiguration.Configure(modelBuilder);
             GroupContextConfiguration.Configure(modelBuilder);
+            PartnerContextConfiguration.Configure(modelBuilder);
         }
     }
 }

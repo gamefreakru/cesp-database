@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20190505124103_Add-Partners")]
+    partial class AddPartners
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,6 +323,69 @@ namespace CESP.Database.Migrations
                     b.ToTable("files");
                 });
 
+            modelBuilder.Entity("CESP.Database.Context.Partners.Models.PartnerDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
+
+                    b.Property<string>("Address")
+                        .HasColumnName("address");
+
+                    b.Property<string>("Email")
+                        .HasColumnName("email")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Info")
+                        .HasColumnName("info");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Phone")
+                        .HasColumnName("phone");
+
+                    b.Property<int?>("PhotoId")
+                        .HasColumnName("photo_id");
+
+                    b.Property<string>("SocialNetwork")
+                        .HasColumnName("socnet");
+
+                    b.Property<string>("SysName")
+                        .IsRequired()
+                        .HasColumnName("sysname")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Url")
+                        .HasColumnName("url")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhotoId");
+
+                    b.HasIndex("SysName")
+                        .IsUnique();
+
+                    b.ToTable("partners");
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.Partners.Models.PartnerFileDto", b =>
+                {
+                    b.Property<int>("FileId")
+                        .HasColumnName("file_id");
+
+                    b.Property<int>("PartnerId")
+                        .HasColumnName("partner_id");
+
+                    b.HasKey("FileId", "PartnerId");
+
+                    b.HasIndex("PartnerId");
+
+                    b.ToTable("partner_files");
+                });
+
             modelBuilder.Entity("CESP.Database.Context.Payments.Models.CurrencyDto", b =>
                 {
                     b.Property<int>("Id")
@@ -383,6 +448,34 @@ namespace CESP.Database.Migrations
                     b.ToTable("prices");
                 });
 
+            modelBuilder.Entity("CESP.Database.Context.Press.Models.PressDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
+
+                    b.Property<string>("BlogUrl")
+                        .HasColumnName("blog_url");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnName("date");
+
+                    b.Property<string>("Info")
+                        .HasColumnName("info");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Source")
+                        .HasColumnName("source")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("presses");
+                });
+
             modelBuilder.Entity("CESP.Database.Context.Schedules.Models.ScheduleDto", b =>
                 {
                     b.Property<int>("Id")
@@ -427,39 +520,12 @@ namespace CESP.Database.Migrations
                         .HasColumnName("name")
                         .HasMaxLength(256);
 
-                    b.Property<int>("PhotoId");
-
                     b.Property<string>("ShortInfo")
                         .HasColumnName("short_info");
 
-                    b.Property<string>("SysName")
-                        .IsRequired()
-                        .HasColumnName("sysname")
-                        .HasMaxLength(256);
-
                     b.HasKey("Id");
 
-                    b.HasIndex("PhotoId");
-
-                    b.HasIndex("SysName")
-                        .IsUnique();
-
                     b.ToTable("schools");
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolFileDto", b =>
-                {
-                    b.Property<int>("SchoolId")
-                        .HasColumnName("school_id");
-
-                    b.Property<int>("FileId")
-                        .HasColumnName("file_id");
-
-                    b.HasKey("SchoolId", "FileId");
-
-                    b.HasIndex("FileId");
-
-                    b.ToTable("school_files");
                 });
 
             modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.GroupBunchDto", b =>
@@ -825,6 +891,30 @@ namespace CESP.Database.Migrations
                         .OnDelete(DeleteBehavior.SetNull);
                 });
 
+            modelBuilder.Entity("CESP.Database.Context.Partners.Models.PartnerDto", b =>
+                {
+                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "Photo")
+                        .WithMany()
+                        .HasForeignKey("PhotoId")
+                        .HasConstraintName("partner_file_fk")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.Partners.Models.PartnerFileDto", b =>
+                {
+                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "File")
+                        .WithMany()
+                        .HasForeignKey("FileId")
+                        .HasConstraintName("partner_file_file_fk")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CESP.Database.Context.Partners.Models.PartnerDto", "Partner")
+                        .WithMany()
+                        .HasForeignKey("PartnerId")
+                        .HasConstraintName("partner_file_partner_fk")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("CESP.Database.Context.Payments.Models.PriceDto", b =>
                 {
                     b.HasOne("CESP.Database.Context.Payments.Models.CurrencyDto", "Currency")
@@ -846,30 +936,6 @@ namespace CESP.Database.Migrations
                         .WithMany()
                         .HasForeignKey("StudentGroupId")
                         .HasConstraintName("schedule_student_group_fk")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolDto", b =>
-                {
-                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "Photo")
-                        .WithMany()
-                        .HasForeignKey("PhotoId")
-                        .HasConstraintName("course_file_fk")
-                        .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("CESP.Database.Context.Schools.Models.SchoolFileDto", b =>
-                {
-                    b.HasOne("CESP.Database.Context.Files.Models.FileDto", "File")
-                        .WithMany()
-                        .HasForeignKey("FileId")
-                        .HasConstraintName("school_files_file_fk")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CESP.Database.Context.Schools.Models.SchoolDto", "School")
-                        .WithMany()
-                        .HasForeignKey("SchoolId")
-                        .HasConstraintName("school_files_school_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
