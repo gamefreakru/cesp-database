@@ -51,6 +51,7 @@ namespace CESP.Database.Context
         public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
 
         public virtual DbSet<SchoolDto> Schools { get; set; }
+        public virtual DbSet<SchoolFileDto> SchoolFiles { get; set; }
         public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
