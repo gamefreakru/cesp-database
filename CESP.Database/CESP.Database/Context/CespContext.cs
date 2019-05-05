@@ -53,6 +53,7 @@ namespace CESP.Database.Context
         public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
 
         public virtual DbSet<SchoolDto> Schools { get; set; }
+        public virtual DbSet<SchoolFileDto> SchoolFiles { get; set; }
         public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
@@ -60,7 +61,6 @@ namespace CESP.Database.Context
 
         public virtual DbSet<PartnerDto> Partners { get; set; }
         public virtual DbSet<PartnerFileDto> PartnerFiles { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            

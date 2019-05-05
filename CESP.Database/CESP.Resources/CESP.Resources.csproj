@@ -179,112 +179,141 @@
       <None Update="Resources\club\wedding.jpg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\asador.jpg">
+      <None Update="Resources\schools\clic.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\asador_corner.jpg">
+      <None Update="Resources\schools\clic1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\asador_hall.jpg">
+      <None Update="Resources\schools\clic2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\asador_white.jpg">
+      <None Update="Resources\schools\clic3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\costalucia.jpeg">
+      <None Update="Resources\schools\clic4.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\costalucia_fish.jpeg">
+      <None Update="Resources\schools\clic5.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\costalucia_kid.jpeg">
+      <None Update="Resources\schools\clic6.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\costalucia_kitchen.jpeg">
+      <None Update="Resources\schools\ihbarcelona.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\costalucia_mountain.jpeg">
+      <None Update="Resources\schools\ihbarcelona1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco1.jpg">
+      <None Update="Resources\schools\ihbarcelona2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco2.jpg">
+      <None Update="Resources\schools\ihbarcelona3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco3.jpg">
+      <None Update="Resources\schools\ihbarcelona4.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco4.jpg">
+      <None Update="Resources\schools\ihbarcelona5.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco5.jpg">
+      <None Update="Resources\schools\ihbarcelona6.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\flamenco6.jpg">
+      <None Update="Resources\schools\ihtarragona.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\iflamenco.jpg">
+      <None Update="Resources\schools\ihtarragona1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\mdk.jpg">
+      <None Update="Resources\schools\ihtarragona2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\mdk_10.jpg">
+      <None Update="Resources\schools\ihtarragona3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\mdk_darin.jpg">
+      <None Update="Resources\schools\ihtarragona4.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\mdk_go.jpg">
+      <None Update="Resources\schools\ihvalencia.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\panspain.png">
+      <None Update="Resources\schools\ihvalencia1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\panspain_people.jpg">
+      <None Update="Resources\schools\ihvalencia2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\panspain_reception.jpg">
+      <None Update="Resources\schools\ihvalencia3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\panspain_sea.jpg">
+      <None Update="Resources\schools\ihvalencia4.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\panspain_view.jpg">
+      <None Update="Resources\schools\ihvalencia5.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\spicysalsa.png">
+      <None Update="Resources\schools\malaca.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\spicysalsa_hall2.jpg">
+      <None Update="Resources\schools\malaca1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\spicysalsa_hall3.jpg">
+      <None Update="Resources\schools\malaca2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\spicysalsa_men.jpg">
+      <None Update="Resources\schools\malaca3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\spicysalsa_people.jpg">
+      <None Update="Resources\schools\malaca4.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\vinniybazar.jpg">
+      <None Update="Resources\schools\picasso.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\vinniybazar_meal.jpg">
+      <None Update="Resources\schools\picasso1.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\vivarafael.jpg">
+      <None Update="Resources\schools\picasso2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\partners\vivarafael_singer.jpg">
+      <None Update="Resources\schools\picasso3.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Resources\partners" />
+      <None Update="Resources\schools\picasso4.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\sol.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\sol1.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\sol2.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\sol3.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\sol4.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\tenerife.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\tenerife1.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\tenerife2.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\tenerife3.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\schools\tenerife4.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
