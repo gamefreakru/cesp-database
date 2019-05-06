@@ -38,6 +38,13 @@ namespace CESP.Database.Filler.Filling
                 };
                 context.Activities.Add(act);
                 context.SaveChanges();
+
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
+                context.SaveChanges();
             }
 
             if (context.Activities.FirstOrDefault(
@@ -63,6 +70,13 @@ namespace CESP.Database.Filler.Filling
                     PhotoId = photo.Id,
                 };
                 context.Activities.Add(act);
+                context.SaveChanges();
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.SaveChanges();
             }
 
@@ -91,6 +105,13 @@ namespace CESP.Database.Filler.Filling
                     PhotoId = photo.Id,
                 };
                 context.Activities.Add(act);
+                context.SaveChanges();
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.SaveChanges();
             }
 
@@ -122,6 +143,13 @@ namespace CESP.Database.Filler.Filling
                     PhotoId = photo.Id,
                 };
                 context.Activities.Add(act);
+                context.SaveChanges();
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.SaveChanges();
             }
 
@@ -181,6 +209,11 @@ namespace CESP.Database.Filler.Filling
                 context.Activities.Add(act);
                 context.SaveChanges();
 
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.ActivityFiles.Add(
                     new ActivityFilesDto
                     {
@@ -201,7 +234,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "activities/Malena.jpg",
+                    Name = "activities/malena.jpg",
                     Info = "MALENA",
                 };
                 context.Files.Add(photo);
@@ -209,7 +242,7 @@ namespace CESP.Database.Filler.Filling
 
                 var photo2 = new FileDto
                 {
-                    Name = "activities/Malena2.jpg",
+                    Name = "activities/malena2.jpg",
                     Info = "MALENA",
                 };
                 context.Files.Add(photo2);
@@ -268,6 +301,11 @@ namespace CESP.Database.Filler.Filling
                 context.Activities.Add(act);
                 context.SaveChanges();
 
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.ActivityFiles.Add(
                     new ActivityFilesDto
                     {
@@ -312,30 +350,12 @@ namespace CESP.Database.Filler.Filling
                 };
                 context.Activities.Add(act);
                 context.SaveChanges();
-            }
-
-            if (context.Activities.FirstOrDefault(
-                    a => a.Name == "ЗИМНИЙ ИНТЕНСИВ") == null)
-            {
-                var photo = new FileDto
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
                 {
-                    Name = "activities/winter_intensive.jpg",
-                    Info = "ЗИМНИЙ ИНТЕНСИВ",
-                };
-                context.Files.Add(photo);
-                context.SaveChanges();
-
-                var act = new ActivityDto
-                {
-                    SysName = "winter",
-                    Name = "ЗИМНИЙ ИНТЕНСИВ",
-                    Start = new DateTime(2018, 1, 3),
-                    End = new DateTime(2018, 1, 7),
-                    ShortInfo = "с 3 по 7 января ждем всех на интенсивный курс испанского языка уровень А1",
-                    Info = "",
-                    PhotoId = photo.Id,
-                };
-                context.Activities.Add(act);
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
                 context.SaveChanges();
             }
 
@@ -395,6 +415,13 @@ namespace CESP.Database.Filler.Filling
                 };
                 context.Activities.Add(act);
                 context.SaveChanges();
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
+                context.SaveChanges();
             }
 
             if (context.Activities.FirstOrDefault(
@@ -431,6 +458,120 @@ namespace CESP.Database.Filler.Filling
                     PhotoId = photo.Id,
                 };
                 context.Activities.Add(act);
+                context.SaveChanges();
+                
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo.Id,
+                });
+                context.SaveChanges();
+            }
+            
+            if (context.Activities.FirstOrDefault(
+                    a => a.Name == "Майские праздники в Валенсии") == null)
+            {
+                var photo = new FileDto
+                {
+                    Name = "activities/valencia_may.jpg",
+                    Info = "Майские праздники в Валенсии",
+                };
+                context.Files.Add(photo);
+                context.SaveChanges();
+
+                var act = new ActivityDto
+                {
+                    SysName = "may",
+                    Name = "Майские праздники в Валенсии",
+                    Start = new DateTime(2017, 5, 1),
+                    End = new DateTime(2017, 5, 13),
+                    ShortInfo = "Проведите майские каникулы с пользой! 2 недели обучения в школе испанского языка International House Valencia! Присоединяйся!",
+                    Info = @"<b> С 1 по 13 мая едем в Валенсию</b>, для изучения испанского языка в среде носителей в школе Internacional House Valencia:<br/> <br/>
+
+
+            Валенсия - один из красивейших городов Испании, находящийся на побережье Cредиземного моря. Город полный солнечного тепла и света, город - история, не упустите возможность посетить его не просто как турист, но окунуться в его незабываемую атмосферу, и быть ее частью говоря на испанском языке.<br/> <br/>
+
+            <b>В свободное от учебы время в Валенсии вы сможете провести с максимальной пользой в зависимости от ваших желаний:</b> <br/> <br/>
+
+            - К вашем услугам большой выбор активных видов спорта: водные, пляжные такие так: флайборд, серфинг, снорклинг, дайвинг, пляжный волейбол и многое другое<br/>
+            - Богатая культурная жизнь города (музеи, театры, парки)<br/>
+            - Огромный выбор ресторанов с превосходной средиземноморской кухней<br/>
+            - Самый крупный торговый центр Испании «Bonaire», в котором вы сможете насладиться увлекательным шоппингом<br/> <br/>
+
+            и многое другое на любой самый притязательный вкус!!<br/><br/>
+
+            <b>Мы предлагаем ехать с нами потому что:</b><br/>
+
+            1. ЭТО ВЫГОДНО - при поездке в группе от нашей школы вы экономите от 50 до 170 € (в зависимости от типа проживания)<br/>
+            2. Это весело - мы собираем людей, которым испанский язык важен, нужен и интересен, а с такими людьми скучать не придется=)<br/>
+            3. Мы берем на себя организационные вопросы, вам нужно просто сказать «ДА!»<br/> <br/>
+
+            <b> О важном:</b><br/>
+
+            Стоимость поездки <b> 560 € </b> (стоимость указана за 2 недели с проживанием)<br/> <br/>
+
+            <b>В стоимость 2-х недельной программы входят:</b><br/>
+
+            1. Обучение (40 часов испанского языка с понедельника по пятницу 9.30-14.30)<br/>
+            2. 8 культурных мероприятий<br/>
+            3. Проживание (тип проживания вы выбираете сами)<br/> <br/>
+
+            <b> В стоимость не входит:</b><br/>
+            1. Авиаперелет <br/>
+            2. Виза + визовые сборы <br/><br/>
+
+
+            <b>ВСЕ УРОВНИ ОБУЧЕНИЯ (А1 - С2)</b> <br/> <br/>
+
+            Если вы планируете поездку семьей и кто-то из вас не хочет изучать испанский, это не повод откладывать отдых!<br/>
+            Позвоните нам, и мы рассчитаем вам индивидуальную стоимость за вычетом обучения =)<br/> <br/>
+
+            <b>Так же мы рекомендуем Вам посетить встречу с представителями школы International Houce Valencia, которая состоится уже 7 апреля в Москве в нашем центре испанского и каталанского языков Vamos!</b><br/> <br/>
+            На встрече вы сможете подробнее узнать про саму школу, обучение, проживание и многое-многое другое! <br/> <br/>
+
+
+            <a class='ssilka1' href='vstrecha-s-predstaviteliami-international-house-valencia'> Подробнее о встрече с представителями International House Valencia </a><br/>
+            <b> Для участников встречи скидка на проживание и обучение!</b><br/> <br/>
+
+            <b>По всем вопросам звоните 8 (985) 765 40 00</b> <br/> <br/>
+
+            Здесь вы можете ознакомиться с фотографиями всех видов проживания, предлагаемые школой<a href='https://www.dropbox.com/sh/pn8qssxmldopjny/AABDAxaBagq82lmwtlxqHgQ4a?dl=0'> посмотреть фотографии </a> <br/>
+
+            Так же прилагаются программа мероприятий на протяжении 2-х недель и фотогаллерея студентов школы <a href='https://cloud.mail.ru/C2FC582B6FAD4EBA9ADB201963DC5CA8'> по ссылке</a> <br/>
+
+
+            Презентация школы Internaional House Valencia <a href='https://cloud.mail.ru/public/2Krz/8C8g9RbVM'> познакомиться со школой </a> <br/>",
+                    PhotoId = photo.Id,
+                };
+                context.Activities.Add(act);
+                context.SaveChanges();
+                
+                
+                var photo1 = new FileDto
+                {
+                    Name = "activities/valencia_may1.jpg",
+                    Info = "Майские праздники в Валенсии",
+                };
+                context.Files.Add(photo1);
+                context.SaveChanges();
+                var photo2 = new FileDto
+                {
+                    Name = "activities/valencia_may2.jpg",
+                    Info = "Майские праздники в Валенсии",
+                };
+                context.Files.Add(photo2);
+                context.SaveChanges();
+
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo1.Id,
+                });
+                context.ActivityFiles.Add(new ActivityFilesDto
+                {
+                    ActivityId = act.Id,
+                    FileId = photo2.Id,
+                });
                 context.SaveChanges();
             }
         }

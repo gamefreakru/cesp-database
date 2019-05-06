@@ -36,13 +36,16 @@ namespace CESP.Database.Context.Activities
                     .HasColumnName("short_info");
 
                 entity.Property(e => e.Info)
-                    .HasColumnName("info");
+                    .HasColumnName("info")
+                    .IsRequired();
 
                 entity.Property(e => e.Start)
-                    .HasColumnName("start");
+                    .HasColumnName("start")
+                    .IsRequired();
 
                 entity.Property(e => e.End)
-                    .HasColumnName("end");
+                    .HasColumnName("end")
+                    .IsRequired(false);
 
                 entity.Property(e => e.PhotoId)
                     .HasColumnName("photo_id")

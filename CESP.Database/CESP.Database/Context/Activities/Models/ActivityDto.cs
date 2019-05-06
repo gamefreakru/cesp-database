@@ -12,11 +12,9 @@ namespace CESP.Database.Context.Activities.Models
         public string ShortInfo { get; set; }
         public string Info { get; set; }
         public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public DateTime? End { get; set; }
         
         public int? PhotoId { get; set; }
         public FileDto Photo { get; set; }
-        
-        // todo photes
     }
 }
