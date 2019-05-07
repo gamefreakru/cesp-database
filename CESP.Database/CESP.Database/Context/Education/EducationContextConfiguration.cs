@@ -67,9 +67,8 @@ namespace CESP.Database.Context.Education
                     .HasColumnName("name")
                     .HasMaxLength(256);
 
-                entity.Property(e => e.NativeName)
-                    .HasColumnName("native_name")
-                    .HasMaxLength(256);
+                entity.Property(e => e.Description)
+                    .HasColumnName("description");
 
                 entity.Property(e => e.Rang)
                     .HasColumnName("rang")
