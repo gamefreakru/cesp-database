@@ -113,7 +113,7 @@
       <None Update="Resources\feedback\shishkanova_ekaterine_2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Resources\feedback\tatiana_2.JPG">
+      <None Update="Resources\feedback\tatiana_2.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Resources\feedback\tatjana.jpg">

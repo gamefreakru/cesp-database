@@ -35,7 +35,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/standart_course.jpg",
+                    Name = "courses/standart_course.jpg",
                     Info = "Стандартный курс испанского",
                 };
                 context.Files.Add(photo);
@@ -79,7 +79,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/intensive_course.jpg",
+                    Name = "courses/intensive_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -169,7 +169,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/weekend_course.jpg",
+                    Name = "courses/weekend_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -211,7 +211,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/individual_course.jpg",
+                    Name = "courses/individual_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -234,7 +234,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/children_course.jpg",
+                    Name = "courses/children_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -254,7 +254,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/catalonia_course.jpg",
+                    Name = "courses/catalonia_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -274,7 +274,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/portugal_course.jpg",
+                    Name = "courses/portugal_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -299,7 +299,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/deal_course.jpg",
+                    Name = "courses/deal_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -320,7 +320,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/inoffice_course.jpg",
+                    Name = "courses/inoffice_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -341,7 +341,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/skype_course.jpg",
+                    Name = "courses/skype_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -362,7 +362,7 @@ namespace CESP.Database.Filler.Filling
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/ege_dele_course.jpg",
+                    Name = "courses/ege_dele_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
@@ -387,7 +387,7 @@ DELE – международная система обучения испанс
             {
                 var photo = new FileDto
                 {
-                    Name = "cources/translate_course.jpg",
+                    Name = "courses/translate_course.jpg",
                 };
                 context.Files.Add(photo);
                 context.SaveChanges();
