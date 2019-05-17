@@ -45,6 +45,7 @@ namespace CESP.Database.Filler
             context.SeedActivities();
             context.SeeSpeakingClub();
             context.SeedSchools();
+            context.SeedLanguageLevelDescription();
         }
     }
 }
