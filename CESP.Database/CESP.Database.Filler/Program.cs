@@ -33,7 +33,6 @@ namespace CESP.Database.Filler
 
             context.SeedCourses();
             context.SeedTeachers();
-            context.Feedbacks.Clear();
             context.SaveChanges();
             context.SeedFeedback();
 
