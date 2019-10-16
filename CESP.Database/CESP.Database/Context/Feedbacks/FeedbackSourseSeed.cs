@@ -1,8 +1,7 @@
-using System;
-using CESP.Database.Context.Users.Models;
+using CESP.Database.Context.Feedbacks.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CESP.Database.Context.Users
+namespace CESP.Database.Context.Feedbacks
 {
     public static class FeedbackSourseSeed
     {

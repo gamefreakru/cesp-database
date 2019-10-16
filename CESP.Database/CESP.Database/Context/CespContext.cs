@@ -2,6 +2,8 @@
 using CESP.Database.Context.Activities.Models;
 using CESP.Database.Context.Education;
 using CESP.Database.Context.Education.Models;
+using CESP.Database.Context.Feedbacks;
+using CESP.Database.Context.Feedbacks.Models;
 using CESP.Database.Context.Files;
 using CESP.Database.Context.Files.Models;
 using CESP.Database.Context.Partners;
@@ -73,6 +75,7 @@ namespace CESP.Database.Context
             FilesContextConfiguration.Configure(modelBuilder);
             GroupContextConfiguration.Configure(modelBuilder);
             PartnerContextConfiguration.Configure(modelBuilder);
+            FeedbackContextConfiguration.Configure(modelBuilder);
         }
     }
 }

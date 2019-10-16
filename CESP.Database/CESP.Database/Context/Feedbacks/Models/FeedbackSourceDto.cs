@@ -1,5 +1,5 @@
 ﻿
-namespace CESP.Database.Context.Users.Models
+namespace CESP.Database.Context.Feedbacks.Models
 {
     public class FeedbackSourceDto
     {

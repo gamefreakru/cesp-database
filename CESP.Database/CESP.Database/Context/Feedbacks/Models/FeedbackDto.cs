@@ -1,7 +1,7 @@
 using System;
 using CESP.Database.Context.Files.Models;
 
-namespace CESP.Database.Context.Users.Models
+namespace CESP.Database.Context.Feedbacks.Models
 {
     public class FeedbackDto
     {
@@ -10,13 +10,12 @@ namespace CESP.Database.Context.Users.Models
 
         public DateTime Date { get; set; }
 
-        public string Signature { get; set; }
-
         public int? SourceId { get; set; }
         public FeedbackSourceDto Source { get; set; }
 
-        public int? UserId { get; set; }
-        public UserDto User { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
         public int? PhotoId { get; set; }
         
