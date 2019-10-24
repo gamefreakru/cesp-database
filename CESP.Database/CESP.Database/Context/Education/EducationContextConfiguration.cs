@@ -39,6 +39,11 @@ namespace CESP.Database.Context.Education
 
                 entity.Property(e => e.Info)
                     .HasColumnName("info");
+
+                entity.Property(e => e.Rang)
+                    .HasColumnName("rang")
+                    .IsRequired()
+                    .HasDefaultValue(0);
                 
                 entity.Property(e => e.PhotoId)
                     .HasColumnName("photo_id")

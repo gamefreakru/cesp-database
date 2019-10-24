@@ -8,7 +8,9 @@ namespace CESP.Database.Context.Education.Models
         public string Name { get; set; }
         public string Post { get; set; }
         public string Info { get; set; }
-        
+
+        public int Rang { get; set; }
+
         public int? PhotoId { get; set; }
         public FileDto Photo { get; set; }
     }

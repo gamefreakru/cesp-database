@@ -31,6 +31,11 @@ namespace CESP.Database.Context.Users
                     .HasMaxLength(256)
                     .IsRequired();
                 
+                entity.Property(e => e.CreateDate)
+                    .HasColumnName("createDate")
+                    .IsRequired()
+                    .HasDefaultValueSql("now()");
+                
                 entity.HasIndex(e => e.Contact)
                     .IsUnique();
             });
