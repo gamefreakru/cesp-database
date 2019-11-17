@@ -16,5 +16,6 @@ namespace CESP.Database.Context.Education.Models
         public FileDto Photo { get; set; }
         public FileDto LargePhoto { get; set; }
         public FileDto SmallPhoto { get; set; }
+        public LanguageDto[] Languages { get; set; }
     }
 }
