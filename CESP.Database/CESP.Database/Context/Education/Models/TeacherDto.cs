@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using CESP.Database.Context.Files.Models;
 
@@ -16,6 +17,6 @@ namespace CESP.Database.Context.Education.Models
         public FileDto Photo { get; set; }
         public FileDto LargePhoto { get; set; }
         public FileDto SmallPhoto { get; set; }
-        public LanguageDto[] Languages { get; set; }
+        public ICollection<LanguageDto> Languages { get; set; }
     }
 }
