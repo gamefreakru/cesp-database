@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20191117153157_AddTeacherPhotosAndProps")]
+    partial class AddTeacherPhotosAndProps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
