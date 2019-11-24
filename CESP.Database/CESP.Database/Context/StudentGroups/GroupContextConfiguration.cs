@@ -1,7 +1,5 @@
-using System.Runtime.CompilerServices;
 using CESP.Database.Context.StudentGroups.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CESP.Database.Context.StudentGroups
 {
@@ -10,64 +8,10 @@ namespace CESP.Database.Context.StudentGroups
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureGroupTimeTable(modelBuilder);
-            ConfigureTimeUnitTable(modelBuilder);
-            ConfigureGroupDurationTable(modelBuilder);
             ConfigureStudentGroupTable(modelBuilder);
             ConfigureGroupBunchTable(modelBuilder);
 
             GroupSeed.Seed(modelBuilder);
-        }
-
-        private static void ConfigureTimeUnitTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<TimeUnitDto>(entity =>
-            {
-                entity.ToTable("time_units");
-
-                entity.HasKey(e => e.Id);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Name)
-                    .HasColumnName("name")
-                    .IsRequired();
-            });
-        }
-
-        private static void ConfigureGroupDurationTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<GroupDurationDto>(entity =>
-            {
-                entity.ToTable("group_durations");
-
-                entity.HasKey(e => e.Id);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Duration)
-                    .HasColumnName("duration")
-                    .IsRequired();
-                
-                entity.Property(e => e.TimeUnitId)
-                    .HasColumnName("time_unit_id")
-                    .IsRequired();
-                entity.HasOne(e => e.TimeUnit)
-                    .WithMany()
-                    .HasForeignKey(e => e.TimeUnitId)
-                    .HasConstraintName("group_duration_time_unit_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
-                
-                entity.Property(e => e.StudentGroupId)
-                    .HasColumnName("student_group_id")
-                    .IsRequired();
-                entity.HasOne(e => e.Group)
-                    .WithMany()
-                    .HasForeignKey(e => e.StudentGroupId)
-                    .HasConstraintName("group_duration_student_group_fk")
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
         }
 
         private static void ConfigureGroupBunchTable(ModelBuilder modelBuilder)
@@ -85,6 +29,11 @@ namespace CESP.Database.Context.StudentGroups
                     .HasColumnName("name")
                     .HasMaxLength(256)
                     .IsRequired();
+                
+                entity.Property(e => e.Duration)
+                    .HasColumnName("duration")
+                    .HasMaxLength(256)
+                    .IsRequired(false);
 
                 entity.Property(e => e.SysName)
                     .HasColumnName("sysname")
@@ -156,6 +105,15 @@ namespace CESP.Database.Context.StudentGroups
                     .HasForeignKey(e => e.CourseId)
                     .HasConstraintName("student_group_course_fk")
                     .OnDelete(DeleteBehavior.Cascade);
+                
+                entity.Property(e => e.TeacherId)
+                    .HasColumnName("teacher_id")
+                    .IsRequired(false);
+                entity.HasOne(e => e.Teacher)
+                    .WithMany()
+                    .HasForeignKey(e => e.TeacherId)
+                    .HasConstraintName("student_group_teacher_fk")
+                    .OnDelete(DeleteBehavior.SetNull);
 
                 entity.Property(e => e.GroupTimeId)
                     .HasColumnName("group_time_id")

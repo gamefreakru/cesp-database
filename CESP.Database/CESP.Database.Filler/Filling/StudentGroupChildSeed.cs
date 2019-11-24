@@ -28,7 +28,7 @@ namespace CESP.Database.Filler.Filling
             var levelA2 = context
                 .LanguageLevels
                 .FirstOrDefault(l => l.Name == "A2.1");
-            var timeUnit = context.TimeUnits.FirstOrDefault(u => u.Name == "ак.ч");
+           // var timeUnit = context.TimeUnits.FirstOrDefault(u => u.Name == "ак.ч");
             
             #region 
             {
@@ -55,14 +55,14 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var duration = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 2.5,
-                    TimeUnitId = timeUnit.Id, 
-                };
-                context.GroupDurations.Add(duration);
-                context.SaveChanges();
+//                var duration = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 2.5,
+//                    TimeUnitId = timeUnit.Id, 
+//                };
+//                context.GroupDurations.Add(duration);
+//                context.SaveChanges();
 
                 var price = new PriceDto
                 {
@@ -101,14 +101,14 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var duration = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 2.5,
-                    TimeUnitId = timeUnit.Id, 
-                };
-                context.GroupDurations.Add(duration);
-                context.SaveChanges();
+//                var duration = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 2.5,
+//                    TimeUnitId = timeUnit.Id, 
+//                };
+//                context.GroupDurations.Add(duration);
+//                context.SaveChanges();
 
                 var price = new PriceDto
                 {
@@ -147,14 +147,14 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var duration = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 2,
-                    TimeUnitId = timeUnit.Id, 
-                };
-                context.GroupDurations.Add(duration);
-                context.SaveChanges();
+//                var duration = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 2,
+//                    TimeUnitId = timeUnit.Id, 
+//                };
+//                context.GroupDurations.Add(duration);
+//                context.SaveChanges();
 
                 var price = new PriceDto
                 {

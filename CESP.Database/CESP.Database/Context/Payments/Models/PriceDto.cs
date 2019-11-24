@@ -6,6 +6,7 @@ namespace CESP.Database.Context.Payments.Models
     {
         public int Id  { get; set; }
         public decimal Cost { get; set; }
+        public decimal? CostFull { get; set; }
 
         public string CostInfo { get; set; }
         public int? DiscountPer { get; set; }

@@ -31,9 +31,9 @@ namespace CESP.Database.Filler.Filling
             var levelA2 = context
                 .LanguageLevels
                 .FirstOrDefault(l => l.Name == "A2.1");
-            var timeUnitAH = context.TimeUnits.FirstOrDefault(u => u.Name == "ак.ч");
-            var timeUnitW = context.TimeUnits.FirstOrDefault(u => u.Name == "нед");
-            var timeUnitM = context.TimeUnits.FirstOrDefault(u => u.Name == "мес");
+//            var timeUnitAH = context.TimeUnits.FirstOrDefault(u => u.Name == "ак.ч");
+//            var timeUnitW = context.TimeUnits.FirstOrDefault(u => u.Name == "нед");
+//            var timeUnitM = context.TimeUnits.FirstOrDefault(u => u.Name == "мес");
             
             #region 
             {
@@ -61,30 +61,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id, 
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id, 
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id, 
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id, 
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id, 
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id, 
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto
@@ -134,30 +134,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id, 
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id, 
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id, 
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id, 
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id, 
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id, 
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto
@@ -208,30 +208,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id,
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id,
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id,
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id,
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id,
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id,
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto
@@ -282,30 +282,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id, 
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id, 
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id, 
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id, 
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id, 
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id, 
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto
@@ -355,30 +355,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id, 
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id, 
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id, 
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id, 
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id, 
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id, 
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto
@@ -428,30 +428,30 @@ namespace CESP.Database.Filler.Filling
                 context.Schedules.Add(schedule);
                 context.SaveChanges();
                 
-                var durationAH = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 60,
-                    TimeUnitId = timeUnitAH.Id, 
-                };
-                context.GroupDurations.Add(durationAH);
-                context.SaveChanges();
-                var durationW = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 12,
-                    TimeUnitId = timeUnitW.Id, 
-                };
-                context.GroupDurations.Add(durationW);
-                context.SaveChanges();
-                var durationM = new GroupDurationDto
-                {
-                    StudentGroupId = group.Id,
-                    Duration = 3,
-                    TimeUnitId = timeUnitM.Id, 
-                };
-                context.GroupDurations.Add(durationM);
-                context.SaveChanges();
+//                var durationAH = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 60,
+//                    TimeUnitId = timeUnitAH.Id, 
+//                };
+//                context.GroupDurations.Add(durationAH);
+//                context.SaveChanges();
+//                var durationW = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 12,
+//                    TimeUnitId = timeUnitW.Id, 
+//                };
+//                context.GroupDurations.Add(durationW);
+//                context.SaveChanges();
+//                var durationM = new GroupDurationDto
+//                {
+//                    StudentGroupId = group.Id,
+//                    Duration = 3,
+//                    TimeUnitId = timeUnitM.Id, 
+//                };
+//                context.GroupDurations.Add(durationM);
+//                context.SaveChanges();
 
 
                 var price1 = new PriceDto

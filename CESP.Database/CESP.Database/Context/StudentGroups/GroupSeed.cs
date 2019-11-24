@@ -10,32 +10,32 @@ namespace CESP.Database.Context.StudentGroups
         {
             SeedGroupTimesTable(modelBuilder);
             SeedGroupBunchTable(modelBuilder);
-            SeedTimeUnitTable(modelBuilder);
+           // SeedTimeUnitTable(modelBuilder);
         }
 
-        private static void SeedTimeUnitTable(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<TimeUnitDto>()
-                .HasData(new TimeUnitDto
-                {
-                    Id = 1,
-                    Name = "ак.ч",
-                });
-
-            modelBuilder.Entity<TimeUnitDto>()
-                .HasData(new TimeUnitDto
-                {
-                    Id = 2,
-                    Name = "нед",
-                });
-
-            modelBuilder.Entity<TimeUnitDto>()
-                .HasData(new TimeUnitDto
-                {
-                    Id = 3,
-                    Name = "мес",
-                });
-        }
+//        private static void SeedTimeUnitTable(ModelBuilder modelBuilder)
+//        {
+//            modelBuilder.Entity<TimeUnitDto>()
+//                .HasData(new TimeUnitDto
+//                {
+//                    Id = 1,
+//                    Name = "ак.ч",
+//                });
+//
+//            modelBuilder.Entity<TimeUnitDto>()
+//                .HasData(new TimeUnitDto
+//                {
+//                    Id = 2,
+//                    Name = "нед",
+//                });
+//
+//            modelBuilder.Entity<TimeUnitDto>()
+//                .HasData(new TimeUnitDto
+//                {
+//                    Id = 3,
+//                    Name = "мес",
+//                });
+//        }
 
         private static void SeedGroupBunchTable(ModelBuilder modelBuilder)
         {

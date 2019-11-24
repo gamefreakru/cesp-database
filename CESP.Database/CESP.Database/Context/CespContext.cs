@@ -49,12 +49,10 @@ namespace CESP.Database.Context
         public virtual DbSet<LanguageLevelDto> LanguageLevels { get; set; }
         public virtual DbSet<StudentGroupDto> StudentGroups  { get; set; }
         public virtual DbSet<GroupBunchDto> GroupBunches { get; set; }
-        public virtual DbSet<GroupDurationDto> GroupDurations { get; set; }
         public virtual DbSet<GroupTimeDto> GroupTimes { get; set; }
 
         public virtual DbSet<SchoolDto> Schools { get; set; }
         public virtual DbSet<SchoolFileDto> SchoolFiles { get; set; }
-        public virtual DbSet<TimeUnitDto> TimeUnits { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
         
         public virtual DbSet<PartnerDto> Partners { get; set; }

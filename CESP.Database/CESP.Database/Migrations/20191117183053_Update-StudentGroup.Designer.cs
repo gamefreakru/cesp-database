@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20191117183053_Update-StudentGroup")]
+    partial class UpdateStudentGroup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -524,9 +526,6 @@ namespace CESP.Database.Migrations
                     b.Property<decimal>("Cost")
                         .HasColumnName("cost");
 
-                    b.Property<decimal?>("CostFull")
-                        .HasColumnName("cost_full");
-
                     b.Property<string>("CostInfo")
                         .HasColumnName("cost_info")
                         .HasMaxLength(256);
@@ -642,10 +641,6 @@ namespace CESP.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
 
-                    b.Property<string>("Duration")
-                        .HasColumnName("duration")
-                        .HasMaxLength(256);
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("name")
@@ -694,6 +689,30 @@ namespace CESP.Database.Migrations
                             Name = "Расписание и цены",
                             SysName = "schedules"
                         });
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.GroupDurationDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
+
+                    b.Property<double>("Duration")
+                        .HasColumnName("duration");
+
+                    b.Property<int>("StudentGroupId")
+                        .HasColumnName("student_group_id");
+
+                    b.Property<int>("TimeUnitId")
+                        .HasColumnName("time_unit_id");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentGroupId");
+
+                    b.HasIndex("TimeUnitId");
+
+                    b.ToTable("group_durations");
                 });
 
             modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.GroupTimeDto", b =>
@@ -786,6 +805,38 @@ namespace CESP.Database.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("student_groups");
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.TimeUnitDto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("time_units");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "ак.ч"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "нед"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "мес"
+                        });
                 });
 
             modelBuilder.Entity("CESP.Database.Context.Users.Models.UserDto", b =>
@@ -984,6 +1035,21 @@ namespace CESP.Database.Migrations
                         .WithMany()
                         .HasForeignKey("SchoolId")
                         .HasConstraintName("school_files_school_fk")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CESP.Database.Context.StudentGroups.Models.GroupDurationDto", b =>
+                {
+                    b.HasOne("CESP.Database.Context.StudentGroups.Models.StudentGroupDto", "Group")
+                        .WithMany()
+                        .HasForeignKey("StudentGroupId")
+                        .HasConstraintName("group_duration_student_group_fk")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CESP.Database.Context.StudentGroups.Models.TimeUnitDto", "TimeUnit")
+                        .WithMany()
+                        .HasForeignKey("TimeUnitId")
+                        .HasConstraintName("group_duration_time_unit_fk")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

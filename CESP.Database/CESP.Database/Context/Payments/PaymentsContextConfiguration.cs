@@ -46,6 +46,10 @@ namespace CESP.Database.Context.Payments
                 entity.Property(e => e.Cost)
                     .HasColumnName("cost")
                     .IsRequired();
+                
+                entity.Property(e => e.CostFull)
+                    .HasColumnName("cost_full")
+                    .IsRequired(false);
 
                 entity.Property(e => e.CostInfo)
                     .HasColumnName("cost_info")
