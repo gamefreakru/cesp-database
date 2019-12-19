@@ -39,6 +39,10 @@ namespace CESP.Database.Context.StudentGroups
                     .HasColumnName("sysname")
                     .HasMaxLength(256)
                     .IsRequired();
+                
+                entity.Property(e => e.Priority)
+                    .HasColumnName("priority")
+                    .IsRequired(false);
 
                 entity.HasIndex(e => e.SysName)
                     .IsUnique();
@@ -55,6 +59,10 @@ namespace CESP.Database.Context.StudentGroups
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id");
+                
+                entity.Property(e => e.Priority)
+                    .HasColumnName("priority")
+                    .IsRequired(false);
 
                 entity.Property(e => e.Name)
                     .HasColumnName("name")

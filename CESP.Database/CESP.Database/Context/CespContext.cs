@@ -46,6 +46,8 @@ namespace CESP.Database.Context
         
         public virtual DbSet<CourseDto> Courses { get; set; }
         
+        public virtual DbSet<CourseFileDto> CourseFiles { get; set; }
+        
         public virtual DbSet<LanguageLevelDto> LanguageLevels { get; set; }
         public virtual DbSet<StudentGroupDto> StudentGroups  { get; set; }
         public virtual DbSet<GroupBunchDto> GroupBunches { get; set; }

@@ -8,6 +8,8 @@ namespace CESP.Database.Context.StudentGroups.Models
 
         public string Duration { get; set; }
 
+        public int? Priority { get; set; }
+
         public string SysName { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace CESP.Database.Context.Education
         public static void Configure(ModelBuilder modelBuilder)
         {
             ConfigureCourseTable(modelBuilder);
+            ConfigureCourseFileTable(modelBuilder);
             ConfigureLanguageLevelTable(modelBuilder);
             ConfigureSpeakingClubMeetingTable(modelBuilder);
             ConfigureTeacherTable(modelBuilder);
@@ -98,6 +99,10 @@ namespace CESP.Database.Context.Education
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasMaxLength(256);
+                
+                entity.Property(e => e.PriceInfo)
+                    .HasColumnName("price_info")
+                    .HasMaxLength(256);
 
                 entity.Property(e => e.Description)
                     .HasColumnName("short_info");
@@ -118,7 +123,35 @@ namespace CESP.Database.Context.Education
                 
             });
         }
-        
+
+        private static void ConfigureCourseFileTable(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CourseFileDto>(entity =>
+            {
+                entity.ToTable("course_files");
+                
+                entity.HasKey(e => new { e.FileId, e.CourseId});
+                
+                entity.Property(e => e.CourseId)
+                    .HasColumnName("course_id")
+                    .IsRequired();
+                entity.HasOne(e => e.Course)
+                    .WithMany()
+                    .HasForeignKey(e => e.CourseId)
+                    .HasConstraintName("course_file_course_fk")
+                    .OnDelete(DeleteBehavior.Cascade);
+                
+                entity.Property(e => e.FileId)
+                    .HasColumnName("file_id")
+                    .IsRequired();
+                entity.HasOne(e => e.File)
+                    .WithMany()
+                    .HasForeignKey(e => e.FileId)
+                    .HasConstraintName("course_file_file_fk")
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+        }
+
         private static void ConfigureSpeakingClubMeetingTable(ModelBuilder modelBuilder)
         {
 
