@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20200222170717_Update-CourseFiles")]
+    partial class UpdateCourseFiles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,8 +116,8 @@ namespace CESP.Database.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnName("course_id");
 
-                    b.Property<int?>("Priority")
-                        .HasColumnName("priority");
+                    b.Property<int>("FileType")
+                        .HasColumnName("file_type");
 
                     b.HasKey("FileId", "CourseId");
 
@@ -437,9 +439,6 @@ namespace CESP.Database.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("id");
-
-                    b.Property<int?>("FileType")
-                        .HasColumnName("file_type");
 
                     b.Property<string>("Info")
                         .HasColumnName("info");
@@ -883,13 +882,13 @@ namespace CESP.Database.Migrations
             modelBuilder.Entity("CESP.Database.Context.Education.Models.CourseFileDto", b =>
                 {
                     b.HasOne("CESP.Database.Context.Education.Models.CourseDto", "Course")
-                        .WithMany("CourseFiles")
+                        .WithMany()
                         .HasForeignKey("CourseId")
                         .HasConstraintName("course_file_course_fk")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CESP.Database.Context.Files.Models.FileDto", "File")
-                        .WithMany("CourseFiles")
+                        .WithMany()
                         .HasForeignKey("FileId")
                         .HasConstraintName("course_file_file_fk")
                         .OnDelete(DeleteBehavior.Cascade);

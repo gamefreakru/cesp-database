@@ -19,7 +19,8 @@ namespace CESP.Database.Context.Files
                 entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Id)
-                    .HasColumnName("id");
+                    .HasColumnName("id")
+                    .IsRequired();
 
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
@@ -28,6 +29,10 @@ namespace CESP.Database.Context.Files
 
                 entity.Property(e => e.Info)
                     .HasColumnName("info");
+                
+                entity.Property(e => e.FileType)
+                    .HasColumnName("file_type")
+                    .IsRequired(false);
             });
         }
     }

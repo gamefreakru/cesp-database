@@ -38,16 +38,11 @@ namespace CESP.Database.Context
         public virtual DbSet<FeedbackDto> Feedbacks { get; set; }
         public virtual DbSet<FeedbackSourceDto> FeedbackSources { get; set; }
         public virtual DbSet<UserDto> Users { get; set; }
-
         public virtual DbSet<ActivityDto> Activities  { get; set; }
         public virtual DbSet<ActivityFilesDto> ActivityFiles { get; set; }
-
         public virtual DbSet<SpeakingClubMeetingDto> SpeakingClubMeetings  { get; set; }
-        
         public virtual DbSet<CourseDto> Courses { get; set; }
-        
         public virtual DbSet<CourseFileDto> CourseFiles { get; set; }
-        
         public virtual DbSet<LanguageLevelDto> LanguageLevels { get; set; }
         public virtual DbSet<StudentGroupDto> StudentGroups  { get; set; }
         public virtual DbSet<GroupBunchDto> GroupBunches { get; set; }
@@ -56,16 +51,12 @@ namespace CESP.Database.Context
         public virtual DbSet<SchoolDto> Schools { get; set; }
         public virtual DbSet<SchoolFileDto> SchoolFiles { get; set; }
         public virtual DbSet<TeacherDto> Teachers  { get; set; }
-        
         public virtual DbSet<PartnerDto> Partners { get; set; }
         public virtual DbSet<PartnerFileDto> PartnerFiles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
-           // modelBuilder.HasDefaultSchema("public");
-           // base.OnModelCreating(modelBuilder);
-            
             ActivityContextConfiguration.Configure(modelBuilder);
             EducationContextConfiguration.Configure(modelBuilder);
             PaymentsContextConfiguration.Configure(modelBuilder);

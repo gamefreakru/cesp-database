@@ -8,7 +8,7 @@ namespace CESP.Database.Context.Education.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        
+
         public string Description { get; set; }
 
         public string DurationInfo { get; set; }
@@ -17,5 +17,7 @@ namespace CESP.Database.Context.Education.Models
 
         public int? PhotoId { get; set; }
         public FileDto Photo { get; set; }
+
+        public ICollection<CourseFileDto> CourseFiles { get; set; }
     }
 }

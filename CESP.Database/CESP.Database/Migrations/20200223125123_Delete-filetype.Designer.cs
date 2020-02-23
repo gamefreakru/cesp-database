@@ -3,15 +3,17 @@ using System;
 using CESP.Database.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CESP.Database.Migrations
 {
     [DbContext(typeof(CespContext))]
-    partial class CespContextModelSnapshot : ModelSnapshot
+    [Migration("20200223125123_Delete-filetype")]
+    partial class Deletefiletype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,9 +116,6 @@ namespace CESP.Database.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnName("course_id");
 
-                    b.Property<int?>("Priority")
-                        .HasColumnName("priority");
-
                     b.HasKey("FileId", "CourseId");
 
                     b.HasIndex("CourseId");
@@ -167,102 +166,6 @@ namespace CESP.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("language_levels");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Info = "Начальный уровень",
-                            Name = "A1",
-                            Rang = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Info = "Базовый уровень",
-                            Name = "A2.1",
-                            Rang = 3
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Info = "Базовый уровень",
-                            Name = "A2.2",
-                            Rang = 4
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Info = "Продвинутый уровень",
-                            Name = "B1.1",
-                            Rang = 5
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Info = "Продвинутый уровень",
-                            Name = "B1.2",
-                            Rang = 6
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Info = "Продвинутый уровень",
-                            Name = "B2.1",
-                            Rang = 7
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Info = "Продвинутый уровень",
-                            Name = "B2.2",
-                            Rang = 8
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Info = "Продвинутый уровень",
-                            Name = "B2.3",
-                            Rang = 9
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Info = "Продвинутый уровень",
-                            Name = "C1.1",
-                            Rang = 10
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Info = "Продвинутый уровень",
-                            Name = "C1.2",
-                            Rang = 11
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "C2.1",
-                            Rang = 12
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "C2.2",
-                            Rang = 13
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Name = "C1+",
-                            Rang = 14
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Name = "C2+",
-                            Rang = 15
-                        });
                 });
 
             modelBuilder.Entity("CESP.Database.Context.Education.Models.SpeakingClubMeetingDto", b =>

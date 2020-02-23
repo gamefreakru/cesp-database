@@ -28,7 +28,7 @@ namespace CESP.Database.Filler
 
             var optionsBuilder = new DbContextOptionsBuilder<CespContext>();
             optionsBuilder.UseNpgsql(cespConnectionString);
-
+/*
             var context = new CespContext(optionsBuilder.Options);
 
             context.SeedCourses();
@@ -47,6 +47,7 @@ namespace CESP.Database.Filler
             context.SeeSpeakingClub();
             context.SeedSchools();
             context.SeedLanguageLevelDescription();
+            */
         }
     }
 }
