@@ -14,6 +14,8 @@ namespace CESP.Database.Context.Education.Models
         public string DurationInfo { get; set; }
 
         public string PriceInfo { get; set; }
+        
+        public int Priority { get; set; }
 
         public int? PhotoId { get; set; }
         public FileDto Photo { get; set; }

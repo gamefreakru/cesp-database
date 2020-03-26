@@ -108,6 +108,10 @@ namespace CESP.Database.Context.Education
                 entity.Property(e => e.DurationInfo)
                     .HasColumnName("duration_info");
 
+                entity.Property(e => e.Priority)
+                    .HasColumnName("priority")
+                    .HasDefaultValue(0);
+                
                 entity.Property(e => e.PhotoId)
                     .HasColumnName("photo_id")
                     .IsRequired(false);
